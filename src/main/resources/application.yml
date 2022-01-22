@@ -22,12 +22,15 @@ spring:
     livereload:
       enabled: true
   flyway:
+    locations: classpath:/db/migration
+    sql-migration-suffixes: ddl
+    baseline-on-migrate: true
     enabled: true
     encoding: UTF-8
   datasource:
     url: jdbc:mysql://localhost:3306/bewithme?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
     username: root
     password: 1234
----
-logging:
-  config: classpath:log4j2.yml
+#---
+#logging:
+#  config: classpath:log4j2.yml
