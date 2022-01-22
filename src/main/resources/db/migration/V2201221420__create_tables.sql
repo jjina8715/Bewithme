@@ -63,7 +63,7 @@ CREATE TABLE `user_game_info_bag` (
   `game_type` char(4)
 );
 
-CREATE TABLE `matchginInfo` (
+CREATE TABLE `matchging_info` (
   `id` int PRIMARY KEY,
   `requester` int not null,
   `requestee` int not null,
