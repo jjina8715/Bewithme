@@ -29,6 +29,7 @@ dependencies {
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	
 	runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'com.h2database:h2'
 	implementation 'org.flywaydb:flyway-core'
 	
 	compileOnly 'org.projectlombok:lombok'
