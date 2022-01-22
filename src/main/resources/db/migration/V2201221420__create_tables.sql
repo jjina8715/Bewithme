@@ -63,7 +63,7 @@ CREATE TABLE `user_game_info_bag` (
   `game_type` char(4)
 );
 
-CREATE TABLE `matchging_info` (
+CREATE TABLE `matching_info` (
   `id` int PRIMARY KEY,
   `requester` int not null,
   `requestee` int not null,
@@ -85,6 +85,6 @@ ALTER TABLE `user_game_info_lol` ADD FOREIGN KEY (`character_id`) REFERENCES `ga
 
 ALTER TABLE `user_game_info_bag` ADD FOREIGN KEY (`user_id`) REFERENCES `member_basic` (`id`);
 
-ALTER TABLE `matchginInfo` ADD FOREIGN KEY (`requester`) REFERENCES `member_basic` (`id`);
+ALTER TABLE `matching_info` ADD FOREIGN KEY (`requester`) REFERENCES `member_basic` (`id`);
 
-ALTER TABLE `matchginInfo` ADD FOREIGN KEY (`requestee`) REFERENCES `member_basic` (`id`);
+ALTER TABLE `matching_info` ADD FOREIGN KEY (`requestee`) REFERENCES `member_basic` (`id`);
