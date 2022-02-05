@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -20,7 +21,7 @@ import lombok.EqualsAndHashCode;
 @Table(name = "user_game_info_lol")
 public class UserGameInfoLolEntity {
 	@OneToOne(fetch = FetchType.LAZY)
-	@Column(name = "user_id")
+	@JoinColumn(name = "user_id")
 	private MemberBasicEntity memberBasic;
 
 	@Id
@@ -29,7 +30,7 @@ public class UserGameInfoLolEntity {
 	private String summonerId;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@Column(name = "characer_id")
+	@JoinColumn(name = "characer_id")
 	private GameCharacterEntity gameCharacter;
 	
 	@Column(name = "role", columnDefinition = "char(4)")

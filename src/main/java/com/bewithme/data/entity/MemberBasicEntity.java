@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,7 @@ import lombok.EqualsAndHashCode;
 @Builder
 @EqualsAndHashCode(callSuper = false)
 @Entity
+@Table(name = "member_basic")
 public class MemberBasicEntity {
 	@Id
 	@Column(name = "id")
