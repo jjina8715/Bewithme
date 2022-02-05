@@ -1,9 +1,10 @@
 package com.bewithme.app.configuration;
 
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -12,10 +13,12 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 
 @Configuration
-@ServletComponentScan
+@ComponentScan
+@EnableJpaAuditing
 public class WebMvcConfig implements WebMvcConfigurer{
 
 	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = { 

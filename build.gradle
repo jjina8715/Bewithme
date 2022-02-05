@@ -1,5 +1,9 @@
+buildscript {
+	ext.boot_version = "2.6.2"
+	
+}
 plugins {
-	id 'org.springframework.boot' version '2.6.2'
+	id 'org.springframework.boot' version '$boot_version'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id "org.flywaydb.flyway" version "7.2.0" 
@@ -16,6 +20,9 @@ compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
 configurations {
+	all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -30,10 +37,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	
+	compile 'org.springframework.boot:spring-boot-starter-log4j2'
+	
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-		
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation group: 'com.github.zhanhb', name: 'thymeleaf-layout-dialect', version: '2.4.1'
     implementation "org.thymeleaf.extras:thymeleaf-extras-springsecurity5:3.0.4.RELEASE"
