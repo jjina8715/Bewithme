@@ -1,7 +1,6 @@
 package com.bewithme.data.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,14 +13,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @Builder
 @EqualsAndHashCode(callSuper = false)
-@Entity(name="member")
+@Entity
 public class MemberAuthEntity extends TimeEntity{
 	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
+	private Long id;
 	
 	private MemberBasicEntity memberBasic;
 	

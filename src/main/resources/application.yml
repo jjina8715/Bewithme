@@ -7,7 +7,7 @@ spring:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   jpa:
     database: mysql
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
     generate-ddl: false
     show-sql: true
@@ -29,7 +29,7 @@ spring:
     enabled: true
     encoding: UTF-8
   datasource:
-    url: jdbc:mysql://localhost:3306/bewithme?serverTimezone=Asia/Seoul&useSSL=true&characterEncoding=utf8
+    jdbc-url: jdbc:mysql://localhost:3306/bewithme?serverTimezone=Asia/Seoul&useSSL=true&characterEncoding=utf8
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
