@@ -33,7 +33,7 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter{
 		.userDetailsService(userDetailsService)
 		.authorizeRequests()
 			.antMatchers(URI_RESOURCE_LOCATIONS).permitAll()
-			.antMatchers("/", "/login", "/join", "/login/**").permitAll()
+			.antMatchers("/", "/signin", "/signup", "/login/**").permitAll()
 		.and()
 			.formLogin()
 			.loginPage("/login")
