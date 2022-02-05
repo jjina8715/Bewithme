@@ -18,7 +18,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "user_game_info_lol")
-public class UserGameInfoLol {
+public class UserGameInfoLolEntity {
 	@OneToOne(fetch = FetchType.LAZY)
 	@Column(name = "user_id")
 	private MemberBasicEntity memberBasic;

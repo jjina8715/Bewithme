@@ -18,10 +18,10 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "user_game_info_bag")
-public class UserGameInfoBag {
+public class UserGameInfoBagEntity {
 	@OneToOne(fetch = FetchType.LAZY)
 	@Column(name = "user_id")
-	private MemberBasicEntity user;
+	private MemberBasicEntity memberBasic;
 
 	@Id
 	@Column(name = "nickname", length = 16)
