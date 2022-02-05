@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,7 +26,7 @@ public class MateWishEntity {
 	private Long id;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	@Column(name = "user_id", nullable = false)
+	@JoinColumn(name = "user_id", nullable = false)
 	private MemberBasicEntity memberBasic;
 
 	@Column(name = "gender", columnDefinition = "char(1)")

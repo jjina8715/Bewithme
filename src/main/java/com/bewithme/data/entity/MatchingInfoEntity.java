@@ -6,6 +6,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,12 +26,12 @@ public class MatchingInfoEntity extends TimeEntity {
 	private Long id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Column(name = "requester", nullable = false)
-	private Long requester;
+	@JoinColumn(name = "requester", nullable = false)
+	private MemberBasicEntity requester;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@Column(name = "requestee", nullable = false)
-	private Long requestee;
+	@JoinColumn(name = "requestee", nullable = false)
+	private MemberBasicEntity requestee;
 
 	@Column(name = "stat", columnDefinition = "char(4)", nullable = false)
 	private String stat;
