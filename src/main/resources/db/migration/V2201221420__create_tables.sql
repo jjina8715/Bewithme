@@ -56,7 +56,7 @@ CREATE TABLE `user_game_info_lol` (
 
 CREATE TABLE `user_game_info_bag` (
   `user_id` int not null,
-  `nickname` char UNIQUE not null,
+  `nickname` varchar(16) UNIQUE not null,
   `tier` char(4),
   `rp` int,
   `server` char(4),
