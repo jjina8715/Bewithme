@@ -88,3 +88,4 @@ ALTER TABLE `user_game_info_bag` ADD FOREIGN KEY (`user_id`) REFERENCES `member_
 ALTER TABLE `matching_info` ADD FOREIGN KEY (`requester`) REFERENCES `member_basic` (`id`);
 
 ALTER TABLE `matching_info` ADD FOREIGN KEY (`requestee`) REFERENCES `member_basic` (`id`);
+
