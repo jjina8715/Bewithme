@@ -13,8 +13,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import lombok.AllArgsConstructor;
+
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class SercurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
@@ -34,11 +37,12 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter{
 		.authorizeRequests()
 			.antMatchers(URI_RESOURCE_LOCATIONS).permitAll()
 			.antMatchers("/", "/signin", "/signup", "/signin/**").permitAll()
+			.anyRequest().authenticated()
 		.and()
 			.formLogin()
 			.loginPage("/login")
-			.successHandler(null)
-			.failureHandler(null)
+			//.successHandler(null)
+			//.failureHandler(null)
 		.and()
 			.logout()
 			.logoutUrl("/logout")
