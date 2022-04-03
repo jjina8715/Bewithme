@@ -23,7 +23,7 @@ spring:
   flyway:
     url: jdbc:mysql://localhost:3306/bewithme
     user: root
-    password: root
+    password: 1234
     baseline-on-migrate: true
     baseline-version: 0
     enabled: true
