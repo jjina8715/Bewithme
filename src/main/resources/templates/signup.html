@@ -5,6 +5,26 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<style>
+    .test_obj input[type="radio"] {
+        display: none;
+    }
+ 
+    .test_obj input[type="radio"] + span {
+        display: inline-block;
+        padding: 15px 10px;
+        float:left;
+        border: 5px solid #dfdfdf;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+    }
+ 
+    .test_obj input[type="radio"]:checked + span {
+        background-color: #113a6b;
+        color: #ffffff;
+    }
+</style>
 	<head>
 		<title>Generic - Phantom by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -58,11 +78,19 @@
 									<input id="birth" name="birth" type="date">
 								</p>
 								<p>
-								<form action='a.jsp'>
-									<label for="Gender" class="floatLabel">Gender</label>
-									<button id="Male" name="Gender">male</button> 
-									<button id="Female" name="Gender">female</button> 
-									<button id="Male" name="Gender">etc</button>
+						
+								<label class="test_obj">
+								    <input type="radio" name="Gender" value="Male">
+								    <span>Male</span>
+								</label>
+								<label class="test_obj">
+								    <input type="radio" name="Gender" value="Female">
+								    <span>Female</span>
+								</label>
+								<label class="test_obj">
+								    <input type="radio" name="Gender" value="etc">
+								    <span>etc</span>
+							
 								</form>
 								</p>
 								<p>

@@ -23,7 +23,7 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private UserDetailsServiceImpl userDetailsService;
 	
-	private static final String[] URI_RESOURCE_LOCATIONS = { "/css/**", "/js/**", "/plugins/**", "/img/**" };
+	private static final String[] URI_RESOURCE_LOCATIONS = { "/static/css/**", "/static/js/**", "/static/plugins/**", "/static/img/**" };
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
@@ -41,8 +41,8 @@ public class SercurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 			.formLogin()
 			.loginPage("/login")
-			//.successHandler(null)
-			//.failureHandler(null)
+//			.successHandler(null)
+//			.failureHandler(null)
 		.and()
 			.logout()
 			.logoutUrl("/logout")
