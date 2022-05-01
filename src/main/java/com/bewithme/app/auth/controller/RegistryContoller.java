@@ -20,7 +20,7 @@ public class RegistryContoller {
 	
 	@GetMapping("/signup")
 	public String signupForm(Model model) {
-		model.addAtrribute("member", new MemberAuthEntity());
+		//model.addAtrribute("member", new MemberAuthEntity());
 		return "signup";
 	}
 }
