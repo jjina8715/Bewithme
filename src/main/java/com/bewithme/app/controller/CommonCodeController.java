@@ -6,14 +6,16 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bewithme.data.type.Game;
 
-@Controller("")
-public class GameCodeController {
+@Controller
+@RequestMapping("/codes")
+public class CommonCodeController {
 
-	@GetMapping("/game/codes")
+	@GetMapping("/game")
 	@ResponseBody
 	public List<Game> getGaemCode() {
 		return new ArrayList<>(EnumSet.allOf(Game.class));
