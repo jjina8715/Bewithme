@@ -10,7 +10,7 @@ import lombok.Getter;
 @Getter
 public class UserDetails extends User{
 
-private static final long serialVersionUID = 54361460258288529L;
+	private static final long serialVersionUID = 54361460258288529L;
 	
 	private MemberAuthEntity user;
 			

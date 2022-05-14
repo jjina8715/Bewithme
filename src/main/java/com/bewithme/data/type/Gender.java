@@ -5,12 +5,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum PositionLol {
-	
-	TOP("TOP", "탑"), 
-	MID("MID", "미드"),  
-	BOTTOM("BOTTOM", "바텀"),
-	JUNGLE("JUNGLE", "정글");
+public enum Gender {
+
+	MALE("m", "남성"),
+	FEMALE("f", "여성");
 	
 	private String code;
 	private String desc;
