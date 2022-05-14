@@ -30,7 +30,7 @@ public class MateWishEntity {
 	private MemberBasicEntity memberBasic;
 
 	@Column(name = "gender", columnDefinition = "char(1)")
-	private Character gender;
+	private String gender;
 
 	@Column(name = "age_group", columnDefinition = "char(4)")
 	private String ageGroup;

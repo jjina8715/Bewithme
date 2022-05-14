@@ -31,7 +31,7 @@ public class MemberBasicEntity {
 	private String nickname;
 
 	@Column(name = "gender", nullable = false, columnDefinition = "char(1)")
-	private Character gender;
+	private String gender;
 
 	@Column(name = "birth", columnDefinition = "char(8)")
 	private String birth;
