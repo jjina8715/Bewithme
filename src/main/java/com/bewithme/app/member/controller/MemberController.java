@@ -21,9 +21,8 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@GetMapping("/members")
-	public List<E> getMembersInfo(MemberCondition memberCondition) {
-		memberService.
-		
+	public List<MemberInfoDto> getMembersInfo(MemberCondition memberCondition) {
+		return memberService.readItems(memberCondition);
 	}
 	
 	@GetMapping("/member")
