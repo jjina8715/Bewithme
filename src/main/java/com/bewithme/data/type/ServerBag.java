@@ -5,10 +5,10 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Server {
+public enum ServerBag {
 	
-	SERVER_B01("STEAM", "스팀"), 
-	SERVER_B02("KAKAO", "카카오");
+	STEAM("STEAM", "스팀"), 
+	KAKAO("KAKAO", "카카오");
 	
 	private String code;
 	private String desc;

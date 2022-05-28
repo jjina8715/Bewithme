@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import lombok.Builder;
@@ -35,9 +34,8 @@ public class MemberAuthEntity extends TimeEntity{
 	@Column(name = "auth_value", length = 255, nullable = false)
 	private String authValue;
 	
-	//@Convert
 	@Column(name = "auth_role", length = 10)
-	private String authRole; //AuthRole enum
+	private String authRole; 
 	
 	//status??
 	

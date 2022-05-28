@@ -7,10 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum GameType {
 	
-	TYPE_01("TYPE_01", "즐겜"), 
-	TYPE_02("TYPE_02", "빡겜"),  
-	TYPE_03("TYPE_03", "여포"),
-	TYPE_04("TYPE_04", "존버");
+	JEULGEM("TYPE_01", "즐겜"),
+	PAKGEM("TYPE_02", "빡겜"),  
+	YEOPO("TYPE_03", "여포"),
+	JOHNVER("TYPE_04", "존버");
 	
 	private String code;
 	private String desc;

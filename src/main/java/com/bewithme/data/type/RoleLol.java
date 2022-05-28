@@ -7,12 +7,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum RoleLol {
 	
-	ROLE_L01("TANK", "탱커"), 
-	ROLE_L02("MARKSMAN", "원딜"),  
-	ROLE_L03("SUPPORT", "서포트");
-//	ROLE_L04("MAGE", ""),
-//	ROLE_L05("Assassin",""),
-//	ROLE_L06("FIGHTER","")
+	TANK("TANK", "탱커"), 
+	MARKSMAN("MARKSMAN", "원딜"),  
+	CONTROLLER("CONTROLLER", "서포트"),
+	MAGE("MAGE", "마법사"),
+	SLAYER("SLAYER","암살자"),
+	FIGHTER("FIGHTER","전사");
 	
 	private String code;
 	private String desc;
