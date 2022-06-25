@@ -9,7 +9,6 @@ import com.bewithme.app.member.model.MemberCondition;
 import com.bewithme.app.member.model.MemberInfoDto;
 import com.bewithme.data.entity.MemberAuthEntity;
 import com.bewithme.data.entity.MemberBasicEntity;
-import com.bewithme.data.entity.mapper.MemberAuthMapper;
 import com.bewithme.data.repository.MemberAuthRepository;
 import com.bewithme.data.repository.MemberBasicRepository;
 
@@ -21,11 +20,14 @@ public class MemberService {
 
 	private final MemberAuthRepository memberAuthRepo;
 	private final MemberBasicRepository memberBasicRepo;
-	private final MemberAuthMapper memberAuthMapper;
 	
 	public List<MemberInfoDto> readItems(MemberCondition memberCondition) {
 		List<MemberAuthEntity> list = memberAuthRepo.findAll();
-		return list.stream().map(memberAuthMapper::toDto).collect(Collectors.toList());
+		return list.stream().map(member -> 
+			MemberInfoDto.builder()
+			.aboutMe("")
+			.build()
+		).collect(Collectors.toList());
 	}
 
 	public void updateMemberInfo(Long id, MemberInfoDto memberInfoDto) {

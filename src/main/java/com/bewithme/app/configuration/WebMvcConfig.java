@@ -55,7 +55,6 @@ public class WebMvcConfig implements WebMvcConfigurer{
 	}
 	
 	
-	
 	@Bean
 	public ThymeleafViewResolver thymeleafViewResolver() {
 	    ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();

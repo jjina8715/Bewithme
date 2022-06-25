@@ -6,9 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class MemberInfoDto {
 
+	private String id;
 	private String name;
 	private String nickname;
 	private String gender;
@@ -27,9 +27,9 @@ public class MemberInfoDto {
 	}
 	
 	@Builder
-	public MemberInfoDto(String name, String nickname, String gender, String birth, 
+	public MemberInfoDto(String id, String name, String nickname, String gender, String birth, 
 			String aboutMe, String discordUrl, String phoneNumber, String accessTime) {
-	
+		this.id = id;
 		this.name = name;
 		this.nickname = nickname;
 		this.gender = gender;
@@ -39,4 +39,5 @@ public class MemberInfoDto {
 		this.phoneNumber = phoneNumber;
 		this.accessTime = accessTime;
 	}
+	
 }

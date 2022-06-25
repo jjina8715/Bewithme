@@ -15,7 +15,7 @@ import com.bewithme.app.member.model.MemberInfoDto;
 import com.bewithme.app.member.service.MemberService;
 import com.bewithme.data.entity.MemberBasicEntity;
 
-@Controller()
+@Controller
 public class MemberController {
 	
 	private MemberService memberService;
