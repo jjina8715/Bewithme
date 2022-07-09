@@ -1,10 +1,13 @@
 package com.bewithme.data.type;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum StatCode {
 	
 	C00("C00", "취소", "탈퇴"), 

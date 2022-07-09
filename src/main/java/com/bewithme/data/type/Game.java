@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@JsonFormat()
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Game {
 	
 	LOL("league of legends", "리그 오브 레전드"),

@@ -20,7 +20,7 @@ public class MemberInfoDto {
 	
 	//description
 	private Gender genderDesc;
-	private String accessTimeDecs;
+	private String accessTimeDesc;
 	
 	public Gender getGenderDesc() {
 		return Gender.valueOf(gender);
