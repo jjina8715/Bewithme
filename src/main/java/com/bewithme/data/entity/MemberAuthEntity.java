@@ -8,15 +8,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import com.bewithme.data.type.Role;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Entity
+@Table(name = "member_auth")
 public class MemberAuthEntity extends TimeEntity{
 	
 	@Id
@@ -39,5 +47,13 @@ public class MemberAuthEntity extends TimeEntity{
 	
 	//status??
 	
+	@Builder
+	public MemberAuthEntity(Long id, MemberBasicEntity memberBasic, String authId, String authValue, String authRole) {
+		this.id = id;
+		this.memberBasic = memberBasic;
+		this.authId = authId;
+		this.authValue = authValue;
+		this.authRole = authRole;
+	}
 	
 }

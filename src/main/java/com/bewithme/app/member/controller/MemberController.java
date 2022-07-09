@@ -9,13 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-import com.bewithme.app.configuration.security.UserDetails;
+import com.bewithme.app.auth.dto.UserDetails;
 import com.bewithme.app.member.model.MemberCondition;
 import com.bewithme.app.member.model.MemberInfoDto;
 import com.bewithme.app.member.service.MemberService;
 import com.bewithme.data.entity.MemberBasicEntity;
 
-@Controller()
+@Controller
 public class MemberController {
 	
 	private MemberService memberService;

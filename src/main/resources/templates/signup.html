@@ -58,7 +58,16 @@
 					<div id="main">
 						<div class="inner">
 							<h1>Sign up</h1>
-							<form action="#" method="post">
+						    <form th:action="@{/signup}" method="post">
+						    	<p>
+									<label for="Name" class="floatLabel">Name</label>
+									<input id="name" name="name" type="text" placeholder="Name">
+								</p>
+								
+						    	<p>
+									<label for="Nickname" class="floatLabel">Name</label>
+									<input id="nickname" name="nickname" type="text" placeholder="Nickname">
+								</p>
 								<p>
 									<label for="Email" class="floatLabel">Email</label>
 									<input id="email" name="email" type="text" placeholder="Email">
@@ -78,17 +87,17 @@
 									<input id="birth" name="birth" type="date">
 								</p>
 								<p>
-									<label for="birth" class="floatLabel">Gender</label>
+									<label for="gender" class="floatLabel">Gender</label>
 									<label class="test_obj">
-								    	<input type="radio" name="Gender" value="Male">
+								    	<input type="radio" name="gender" value="Male">
 								    	<span>Male</span>
 									</label>
 									<label class="test_obj">
-								    	<input type="radio" name="Gender" value="Female">
+								    	<input type="radio" name="gender" value="Female">
 								    	<span>Female</span>
 									</label>
 									<label class="test_obj">
-								    	<input type="radio" name="Gender" value="etc">
+								    	<input type="radio" name="gender" value="etc">
 								    	<span>etc</span>
 								</p>
 								<br>

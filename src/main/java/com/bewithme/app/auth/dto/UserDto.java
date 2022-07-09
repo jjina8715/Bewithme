@@ -6,6 +6,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import com.bewithme.data.entity.MemberAuthEntity;
+import com.bewithme.data.entity.MemberBasicEntity;
+import com.bewithme.data.type.Gender;
 import com.bewithme.data.type.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,7 +22,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class UserDto {
 
-	private Integer id;
+	private Long id;
 	
 	@NotBlank(message="이메일은 필수로 입력해주세요")
 	@Email(message="이메일 형식에 맞지 않는 값입니다.")
@@ -40,12 +42,34 @@ public class UserDto {
 	
 	private String role;
 	
+	private String birth;
+	
+	private String gender;
+	
+	private String nickname;
+	
+	private String discordUrl;
+	
+	private String aboutMe;
+	
 	public MemberAuthEntity toEntity() {
 		return MemberAuthEntity.builder()
+				.id(id)
 				.authId(email)
 				.authValue(password)
-				.authRole(role)
+				.authRole(Role.ROLE_USER.toString())
 				.build();
 	}
 	
+	public MemberBasicEntity toBasicEntity() {
+		return MemberBasicEntity.builder()
+				.birth(birth.replaceAll("-",""))
+				.name(name)
+				.phoneNumber(phoneNum)
+				.nickname(nickname)
+				.discordUrl(discordUrl)
+				.aboutMe(aboutMe)
+				.gender(Gender.of(gender).getCode())
+				.build();
+	}
 }
