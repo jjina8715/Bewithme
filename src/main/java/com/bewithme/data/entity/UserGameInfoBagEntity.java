@@ -3,8 +3,6 @@ package com.bewithme.data.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -26,7 +24,6 @@ public class UserGameInfoBagEntity {
 
 	@Id
 	@Column(name = "nickname", length = 16)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String nickname;
 	
 	@Column(name = "tier", columnDefinition = "char(4)")

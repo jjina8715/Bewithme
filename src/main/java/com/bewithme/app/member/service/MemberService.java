@@ -1,6 +1,6 @@
 package com.bewithme.app.member.service;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -9,12 +9,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.bewithme.app.auth.dto.UserDto;
+import com.bewithme.app.member.model.MateInfoDto;
 import com.bewithme.app.member.model.MemberCondition;
 import com.bewithme.app.member.model.MemberInfoDto;
 import com.bewithme.common.exception.UserAlreadyExistsException;
 import com.bewithme.data.entity.MemberAuthEntity;
 import com.bewithme.data.entity.MemberBasicEntity;
-//import com.bewithme.data.entity.mapper.MemberAuthMapper;
 import com.bewithme.data.repository.MemberAuthRepository;
 import com.bewithme.data.repository.MemberBasicRepository;
 
@@ -29,21 +29,17 @@ public class MemberService {
 	private final PasswordEncoder passwordEncoder;
 	private final MemberAuthRepository memberAuthRepo;
 	private final MemberBasicRepository memberBasicRepo;
-	//private final MemberAuthMapper memberAuthMapper;
+
 	
-	public List<MemberInfoDto> readItems(MemberCondition memberCondition) {
-	//	List<MemberAuthEntity> list = memberAuthRepo.findAll();
-		//return list.stream().map(memberAuthMapper::toDto).collect(Collectors.toList());
-		return null;
-		
+	public List<MateInfoDto> readMateInfo(MemberCondition memberCondition) {
+		return memberBasicRepo.readItems(memberCondition);
 	}
 
 	public void updateMemberInfo(Long id, MemberInfoDto memberInfoDto) {
-		MemberBasicEntity memberBasic = memberAuthRepo.getById(id).getMemberBasic();
+		var memberBasic = memberAuthRepo.getById(id).getMemberBasic();
 		memberBasic.setNickname(memberInfoDto.getNickname());
 		memberBasic.setGender(memberInfoDto.getGender());
 		memberBasic.setBirth(memberInfoDto.getBirth());
-		memberBasic.setAccessTime(memberInfoDto.getAccessTime());
 		memberBasic.setAboutMe(memberInfoDto.getAboutMe());
 		memberBasic.setDiscordUrl(memberInfoDto.getDiscordUrl());
 		memberBasic.setPhoneNumber(memberInfoDto.getPhoneNumber());
@@ -75,5 +71,9 @@ log.info("memberBasic={}",user.getMemberBasic());
 		
 		return true;
 	}
-	
+
+	public List<MemberInfoDto> findUsers(Long id, MemberCondition condition) {
+		
+		return new ArrayList<>();
+	}
 }
