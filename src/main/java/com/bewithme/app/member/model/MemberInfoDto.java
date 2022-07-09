@@ -1,5 +1,6 @@
 package com.bewithme.app.member.model;
 
+import com.bewithme.data.entity.MemberBasicEntity;
 import com.bewithme.data.type.Gender;
 
 import lombok.Builder;
@@ -8,7 +9,7 @@ import lombok.Data;
 @Data
 public class MemberInfoDto {
 
-	private String id;
+	private Long id;
 	private String name;
 	private String nickname;
 	private String gender;
@@ -16,19 +17,19 @@ public class MemberInfoDto {
 	private String aboutMe;
 	private String discordUrl;
 	private String phoneNumber;
-	private String accessTime;
+	
+	
 	
 	//description
 	private Gender genderDesc;
-	private String accessTimeDesc;
 	
 	public Gender getGenderDesc() {
 		return Gender.valueOf(gender);
 	}
 	
 	@Builder
-	public MemberInfoDto(String id, String name, String nickname, String gender, String birth, 
-			String aboutMe, String discordUrl, String phoneNumber, String accessTime) {
+	public MemberInfoDto(Long id, String name, String nickname, String gender, String birth, 
+			String aboutMe, String discordUrl, String phoneNumber) {
 		this.id = id;
 		this.name = name;
 		this.nickname = nickname;
@@ -37,7 +38,16 @@ public class MemberInfoDto {
 		this.aboutMe = aboutMe;
 		this.discordUrl = discordUrl;
 		this.phoneNumber = phoneNumber;
-		this.accessTime = accessTime;
 	}
 	
+	public MemberInfoDto(MemberBasicEntity memberBasic) {
+		this.id = memberBasic.getId();
+		this.name = memberBasic.getName();
+		this.nickname = memberBasic.getNickname();
+		this.gender = memberBasic.getGender();
+		this.birth = memberBasic.getBirth();
+		this.aboutMe = memberBasic.getAboutMe();
+		this.discordUrl = memberBasic.getDiscordUrl();
+		this.phoneNumber = memberBasic.getPhoneNumber();
+	}
 }

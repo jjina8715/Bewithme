@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.bewithme.data.entity.MemberAuthEntity;
 import com.bewithme.data.repository.MemberAuthRepository;
 
 import lombok.RequiredArgsConstructor;

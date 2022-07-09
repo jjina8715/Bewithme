@@ -1,5 +1,8 @@
 package com.bewithme.app.member.model;
 
-public class MemberCondition {
+import lombok.Data;
 
+@Data
+public class MemberCondition {
+	private Long id;
 }

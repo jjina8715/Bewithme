@@ -1,14 +1,13 @@
 package com.bewithme.app.member.service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.bewithme.app.member.model.MateInfoDto;
 import com.bewithme.app.member.model.MemberCondition;
 import com.bewithme.app.member.model.MemberInfoDto;
-import com.bewithme.data.entity.MemberAuthEntity;
-import com.bewithme.data.entity.MemberBasicEntity;
 import com.bewithme.data.repository.MemberAuthRepository;
 import com.bewithme.data.repository.MemberBasicRepository;
 
@@ -21,21 +20,15 @@ public class MemberService {
 	private final MemberAuthRepository memberAuthRepo;
 	private final MemberBasicRepository memberBasicRepo;
 	
-	public List<MemberInfoDto> readItems(MemberCondition memberCondition) {
-		List<MemberAuthEntity> list = memberAuthRepo.findAll();
-		return list.stream().map(member -> 
-			MemberInfoDto.builder()
-			.aboutMe("")
-			.build()
-		).collect(Collectors.toList());
+	public List<MateInfoDto> readMateInfo(MemberCondition memberCondition) {
+		return memberBasicRepo.readItems(memberCondition);
 	}
 
 	public void updateMemberInfo(Long id, MemberInfoDto memberInfoDto) {
-		MemberBasicEntity memberBasic = memberAuthRepo.getById(id).getMemberBasic();
+		var memberBasic = memberAuthRepo.getById(id).getMemberBasic();
 		memberBasic.setNickname(memberInfoDto.getNickname());
 		memberBasic.setGender(memberInfoDto.getGender());
 		memberBasic.setBirth(memberInfoDto.getBirth());
-		memberBasic.setAccessTime(memberInfoDto.getAccessTime());
 		memberBasic.setAboutMe(memberInfoDto.getAboutMe());
 		memberBasic.setDiscordUrl(memberInfoDto.getDiscordUrl());
 		memberBasic.setPhoneNumber(memberInfoDto.getPhoneNumber());
@@ -43,4 +36,8 @@ public class MemberService {
 		memberBasicRepo.save(memberBasic);
 	}
 	
+	public List<MemberInfoDto> findUsers(Long id, MemberCondition condition) {
+		
+		return new ArrayList<>();
+	}
 }
