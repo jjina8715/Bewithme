@@ -12,9 +12,11 @@ import javax.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "member_basic")
@@ -50,4 +52,20 @@ public class MemberBasicEntity {
 
 	@Column(name = "last_login")
 	private LocalDateTime lastLogin;
+	
+	@Builder
+	public MemberBasicEntity(Long id, String name, String nickname, String gender, String birth, String accessTime, 
+			String aboutMe, String discordUrl, String phoneNumber, LocalDateTime lastLogin) {
+		this.id = id;
+		this.name = name;
+		this.nickname = nickname;
+		this.gender = gender;
+		this.birth = birth;
+		this.accessTime = accessTime;
+		this.aboutMe = aboutMe;
+		this.discordUrl = discordUrl;
+		this.phoneNumber = phoneNumber;
+		this.lastLogin = lastLogin;
+	}
+	
 }

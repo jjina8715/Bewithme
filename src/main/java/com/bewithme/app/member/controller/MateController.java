@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bewithme.app.configuration.security.UserDetails;
+import com.bewithme.app.auth.dto.UserDetails;
 import com.bewithme.app.member.model.MateInfoDto;
 import com.bewithme.app.member.model.MemberCondition;
 import com.bewithme.app.member.service.MatchingService;
