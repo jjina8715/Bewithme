@@ -18,14 +18,8 @@ public class MemberInfoDto {
 	private String discordUrl;
 	private String phoneNumber;
 	
-	
-	
 	//description
-	private Gender genderDesc;
-	
-	public Gender getGenderDesc() {
-		return Gender.valueOf(gender);
-	}
+	private String genderDesc;
 	
 	@Builder
 	public MemberInfoDto(Long id, String name, String nickname, String gender, String birth, 
@@ -34,6 +28,7 @@ public class MemberInfoDto {
 		this.name = name;
 		this.nickname = nickname;
 		this.gender = gender;
+		this.genderDesc = Gender.valueOf(gender).getDesc();
 		this.birth = birth;
 		this.aboutMe = aboutMe;
 		this.discordUrl = discordUrl;
@@ -45,6 +40,7 @@ public class MemberInfoDto {
 		this.name = memberBasic.getName();
 		this.nickname = memberBasic.getNickname();
 		this.gender = memberBasic.getGender();
+		this.genderDesc = Gender.valueOf(gender).getDesc();
 		this.birth = memberBasic.getBirth();
 		this.aboutMe = memberBasic.getAboutMe();
 		this.discordUrl = memberBasic.getDiscordUrl();
