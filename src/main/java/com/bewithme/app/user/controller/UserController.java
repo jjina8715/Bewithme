@@ -1,4 +1,4 @@
-package com.bewithme.app.member.controller;
+package com.bewithme.app.user.controller;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bewithme.app.auth.dto.UserDetails;
-import com.bewithme.app.member.model.MemberCondition;
-import com.bewithme.app.member.model.MemberInfoDto;
-import com.bewithme.app.member.service.MemberService;
+import com.bewithme.app.user.model.UserDto;
+import com.bewithme.app.user.model.UserSearchCondition;
+import com.bewithme.app.user.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,12 +19,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserController {
 
-	private final MemberService memberService;
+	private final UserService userService;
 	
 	@GetMapping
-	public List<MemberInfoDto> findUsers(@AuthenticationPrincipal UserDetails member, MemberCondition condition) {
+	public List<UserDto> findUsers(@AuthenticationPrincipal UserDetails member, UserSearchCondition condition) {
 		
-		return memberService.findUsers(member.getUser().getMemberBasic().getId(), condition);
+		return userService.findUsers(member.getUser().getMemberBasic().getId(), condition);
 	}
 	/*
 	 * @GetMapping("/{id}") public

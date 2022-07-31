@@ -1,35 +1,23 @@
-package com.bewithme.app.member.controller;
-
-import java.util.List;
+package com.bewithme.app.mate.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bewithme.app.auth.dto.UserDetails;
-import com.bewithme.app.member.model.MateInfoDto;
-import com.bewithme.app.member.model.MemberCondition;
-import com.bewithme.app.member.service.MatchingService;
-import com.bewithme.app.member.service.MemberService;
+import com.bewithme.app.mate.service.MatchingService;
 
 import lombok.RequiredArgsConstructor;
 
 @Controller
-@RequestMapping("/mates")
+@RequestMapping("/mate")
 @RequiredArgsConstructor
 public class MateController {
-
-	private final MemberService memberService;
 	private final MatchingService matchingService;
-	
-	@GetMapping
-	public List<MateInfoDto> readMateInfo(MemberCondition memberCondition) {
-		return memberService.readMateInfo(memberCondition);
-	}
+
 	
 	@PostMapping("/want/{id}")
 	public ResponseEntity<Void> requestMatching(@AuthenticationPrincipal UserDetails member, @PathVariable Long id) {

@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum TierLol {
+public enum LolTier {
 	
 	TIER_L01("IRON","아이언"),
 	TIER_L02("BRONZE","브론즈"),

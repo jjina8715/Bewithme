@@ -1,16 +1,11 @@
 package com.bewithme.app.member.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.bewithme.app.auth.dto.UserDto;
-import com.bewithme.app.member.model.MateInfoDto;
-import com.bewithme.app.member.model.MemberCondition;
 import com.bewithme.app.member.model.MemberInfoDto;
 import com.bewithme.common.exception.UserAlreadyExistsException;
 import com.bewithme.data.entity.MemberAuthEntity;
@@ -29,11 +24,6 @@ public class MemberService {
 	private final PasswordEncoder passwordEncoder;
 	private final MemberAuthRepository memberAuthRepo;
 	private final MemberBasicRepository memberBasicRepo;
-
-	
-	public List<MateInfoDto> readMateInfo(MemberCondition memberCondition) {
-		return memberBasicRepo.readItems(memberCondition);
-	}
 
 	public void updateMemberInfo(Long id, MemberInfoDto memberInfoDto) {
 		var memberBasic = memberAuthRepo.getById(id).getMemberBasic();
@@ -72,8 +62,4 @@ log.info("memberBasic={}",user.getMemberBasic());
 		return true;
 	}
 
-	public List<MemberInfoDto> findUsers(Long id, MemberCondition condition) {
-		
-		return new ArrayList<>();
-	}
 }

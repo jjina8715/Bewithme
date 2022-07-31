@@ -1,4 +1,4 @@
-package com.bewithme.app.member.service;
+package com.bewithme.app.mate.service;
 
 import java.util.NoSuchElementException;
 

@@ -5,7 +5,7 @@ import static com.bewithme.data.entity.QMatchingInfoEntity.matchingInfoEntity;
 
 import java.util.List;
 
-import com.bewithme.app.member.model.MateInfoDto;
+import com.bewithme.app.mate.model.MateInfoDto;
 import com.bewithme.app.member.model.MemberCondition;
 import com.bewithme.data.type.StatCode;
 import com.querydsl.core.types.Projections;
