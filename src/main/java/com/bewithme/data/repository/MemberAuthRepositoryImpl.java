@@ -5,8 +5,8 @@ import static com.bewithme.data.entity.QMemberBasicEntity.memberBasicEntity;
 
 import java.util.List;
 
-import com.bewithme.app.member.model.MemberCondition;
-import com.bewithme.app.member.model.MemberInfoDto;
+import com.bewithme.app.info.model.MemberCondition;
+import com.bewithme.app.info.model.MemberInfoDto;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 

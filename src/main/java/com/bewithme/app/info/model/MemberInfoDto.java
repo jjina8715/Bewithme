@@ -1,4 +1,4 @@
-package com.bewithme.app.member.model;
+package com.bewithme.app.info.model;
 
 import com.bewithme.data.entity.MemberBasicEntity;
 import com.bewithme.data.type.Gender;

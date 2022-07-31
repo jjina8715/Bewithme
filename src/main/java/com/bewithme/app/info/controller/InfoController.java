@@ -1,4 +1,4 @@
-package com.bewithme.app.member.controller;
+package com.bewithme.app.info.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bewithme.app.auth.dto.UserDetails;
-import com.bewithme.app.member.model.MemberInfoDto;
-import com.bewithme.app.member.service.MemberService;
+import com.bewithme.app.info.model.MemberInfoDto;
+import com.bewithme.app.info.service.MemberService;
 import com.bewithme.data.entity.MemberBasicEntity;
 
 import lombok.RequiredArgsConstructor;

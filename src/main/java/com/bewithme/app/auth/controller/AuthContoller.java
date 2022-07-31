@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bewithme.app.auth.dto.UserDto;
-import com.bewithme.app.member.service.MemberService;
+import com.bewithme.app.info.service.MemberService;
 import com.bewithme.common.exception.UserAlreadyExistsException;
 
 import lombok.RequiredArgsConstructor;

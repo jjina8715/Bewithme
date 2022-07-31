@@ -1,4 +1,4 @@
-package com.bewithme.app.member.model;
+package com.bewithme.app.info.model;
 
 import lombok.Data;
 

@@ -2,8 +2,8 @@ package com.bewithme.data.repository;
 
 import java.util.List;
 
-import com.bewithme.app.member.model.MemberCondition;
-import com.bewithme.app.member.model.MemberInfoDto;
+import com.bewithme.app.info.model.MemberCondition;
+import com.bewithme.app.info.model.MemberInfoDto;
 
 public interface MemberAuthRepositoryCutom {
 

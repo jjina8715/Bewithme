@@ -1,4 +1,4 @@
-package com.bewithme.app.member.service;
+package com.bewithme.app.info.service;
 
 import javax.validation.Valid;
 
@@ -6,7 +6,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.bewithme.app.auth.dto.UserDto;
-import com.bewithme.app.member.model.MemberInfoDto;
+import com.bewithme.app.info.model.MemberInfoDto;
 import com.bewithme.common.exception.UserAlreadyExistsException;
 import com.bewithme.data.entity.MemberAuthEntity;
 import com.bewithme.data.entity.MemberBasicEntity;
