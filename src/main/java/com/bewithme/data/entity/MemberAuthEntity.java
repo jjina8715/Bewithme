@@ -17,8 +17,10 @@ import com.bewithme.data.type.Role;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @Builder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
