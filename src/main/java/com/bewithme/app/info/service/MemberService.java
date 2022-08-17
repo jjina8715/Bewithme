@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bewithme.app.auth.dto.UserDto;
 import com.bewithme.app.info.model.MemberInfoDto;
@@ -25,16 +26,10 @@ public class MemberService {
 	private final MemberAuthRepository memberAuthRepo;
 	private final MemberBasicRepository memberBasicRepo;
 
+	@Transactional
 	public void updateMemberInfo(Long id, MemberInfoDto memberInfoDto) {
 		var memberBasic = memberAuthRepo.getById(id).getMemberBasic();
-		memberBasic.setNickname(memberInfoDto.getNickname());
-		memberBasic.setGender(memberInfoDto.getGender());
-		memberBasic.setBirth(memberInfoDto.getBirth());
-		memberBasic.setAboutMe(memberInfoDto.getAboutMe());
-		memberBasic.setDiscordUrl(memberInfoDto.getDiscordUrl());
-		memberBasic.setPhoneNumber(memberInfoDto.getPhoneNumber());
-		
-		memberBasicRepo.save(memberBasic);
+		memberBasic.updateMemberInfo(memberInfoDto);
 	}
 
 	public MemberAuthEntity createMember(@Valid UserDto userDto) throws UserAlreadyExistsException {

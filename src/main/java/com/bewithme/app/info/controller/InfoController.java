@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.bewithme.app.auth.dto.UserDetails;
 import com.bewithme.app.info.model.MemberInfoDto;
 import com.bewithme.app.info.service.MemberService;
-import com.bewithme.data.entity.MemberBasicEntity;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,8 +22,10 @@ public class InfoController {
 	
 	@GetMapping
 	public MemberInfoDto getMemberInfo(@AuthenticationPrincipal UserDetails member) {
-		MemberBasicEntity memberBasic = member.getUser().getMemberBasic();
-		return new MemberInfoDto(memberBasic);
+		var memberBasic = member.getUser().getMemberBasic();
+		var memberInfo = new MemberInfoDto(memberBasic);
+		memberInfo.setEmail(member.getUsername());
+		return memberInfo;
 	}
 	
 	@PutMapping

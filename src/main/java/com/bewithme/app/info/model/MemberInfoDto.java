@@ -10,19 +10,20 @@ import lombok.Data;
 public class MemberInfoDto {
 
 	private Long id;
-	private String name;
+	private String email;
 	private String nickname;
+	private String name;
 	private String gender;
 	private String birth;
+	private String phoneNumber;
 	private String aboutMe;
 	private String discordUrl;
-	private String phoneNumber;
 	
 	//description
 	private String genderDesc;
 	
 	@Builder
-	public MemberInfoDto(Long id, String name, String nickname, String gender, String birth, 
+	public MemberInfoDto(Long id, String email, String name, String nickname, String gender, String birth, 
 			String aboutMe, String discordUrl, String phoneNumber) {
 		this.id = id;
 		this.name = name;

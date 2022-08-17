@@ -3,7 +3,7 @@ package com.bewithme.app.user.model;
 import lombok.Data;
 
 @Data
-public class UserDetailDto<T> {
+public class UserDetailDto {
 	private Long id;
 	private String name;
 	private String nickname;
@@ -11,9 +11,12 @@ public class UserDetailDto<T> {
 	private String birth;
 	private String aboutMe;
 	private String discordUrl;
-	private String phoneNumber;
-	
-	//description
-	private String genderDesc;
-	private T gameInfo;
+	private GameInfo gameInfo;
+
+	@Data
+	public class GameInfo {
+		private String gameName;
+		private String comment;
+		
+	}
 }

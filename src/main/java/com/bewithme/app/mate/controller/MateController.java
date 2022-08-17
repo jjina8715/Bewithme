@@ -18,10 +18,11 @@ import lombok.RequiredArgsConstructor;
 public class MateController {
 	private final MatchingService matchingService;
 
-	
 	@PostMapping("/want/{id}")
 	public ResponseEntity<Void> requestMatching(@AuthenticationPrincipal UserDetails member, @PathVariable Long id) {
 		matchingService.requestMatching(member.getUser().getMemberBasic(), id);
 		return ResponseEntity.accepted().build();
 	}
+	
+	
 }
