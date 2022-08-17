@@ -14,7 +14,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Data
 @EqualsAndHashCode(of = { "id" })
 @Table(name = "game_character")
 public class GameCharacterEntity {
