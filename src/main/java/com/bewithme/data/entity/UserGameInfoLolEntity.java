@@ -14,7 +14,6 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Builder
-@Data
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "user_game_info_lol")
 public class UserGameInfoLolEntity {

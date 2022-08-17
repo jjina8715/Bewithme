@@ -9,10 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-
-import com.bewithme.data.type.Role;
 
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +16,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
-@Getter
 @Builder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)

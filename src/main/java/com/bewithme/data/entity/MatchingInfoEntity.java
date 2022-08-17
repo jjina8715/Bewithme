@@ -16,7 +16,6 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Builder
-@Data
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "matching_info")
 public class MatchingInfoEntity extends TimeEntity {

@@ -11,14 +11,13 @@ import com.bewithme.data.type.Gender;
 import com.bewithme.data.type.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 public class UserDto {
 
@@ -34,6 +33,7 @@ public class UserDto {
 	
 	@JsonIgnore
 	@NotBlank(message="비밀번호는 필수로 입력해주세요.")
+
 	@Pattern(regexp="(?=.*\\d)(?=.*[a-zA-Z]).{8,16}", message="8~16자 영문(대소문자), 숫자를 포함하세요.")
 	private String password;
 	
