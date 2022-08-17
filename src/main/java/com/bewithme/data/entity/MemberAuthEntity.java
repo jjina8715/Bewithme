@@ -20,6 +20,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
+@Getter
 @Builder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)

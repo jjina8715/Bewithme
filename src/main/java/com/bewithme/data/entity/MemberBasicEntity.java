@@ -9,12 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.bewithme.app.info.model.MemberInfoDto;
+
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
+@Getter
 @Builder
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
@@ -66,6 +68,15 @@ public class MemberBasicEntity {
 		this.discordUrl = discordUrl;
 		this.phoneNumber = phoneNumber;
 		this.lastLogin = lastLogin;
+	}
+	
+	public void updateMemberInfo(MemberInfoDto memberInfoDto) {
+		this.nickname = memberInfoDto.getNickname();
+		this.gender = memberInfoDto.getGender();
+		this.birth = memberInfoDto.getBirth();
+		this.aboutMe = memberInfoDto.getAboutMe();
+		this.discordUrl = memberInfoDto.getDiscordUrl();
+		this.phoneNumber = memberInfoDto.getPhoneNumber();
 	}
 	
 }
