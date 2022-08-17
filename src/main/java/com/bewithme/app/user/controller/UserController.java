@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bewithme.app.auth.dto.UserDetails;
+import com.bewithme.app.user.model.UserDetailDto;
 import com.bewithme.app.user.model.UserDto;
 import com.bewithme.app.user.model.UserSearchCondition;
 import com.bewithme.app.user.service.UserService;
@@ -26,7 +27,10 @@ public class UserController {
 		
 		return userService.findUsers(member.getUser().getMemberBasic().getId(), condition);
 	}
-	/*
-	 * @GetMapping("/{id}") public
-	 */
+	
+	@GetMapping("/{id}") 
+	public UserDetailDto findUserDetail(UserSearchCondition condition) {
+		return userService.findUserDetail(condition);
+	}
+	 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.bewithme.app.user.model.UserDetailDto;
 import com.bewithme.app.user.model.UserDto;
 import com.bewithme.app.user.model.UserSearchCondition;
 import com.bewithme.data.repository.MemberAuthRepository;
@@ -22,5 +23,10 @@ public class UserService {
 	public List<UserDto> findUsers(Long id, UserSearchCondition condition) {
 		
 		return new ArrayList<>();
+	}
+
+	public UserDetailDto findUserDetail(UserSearchCondition condition) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
