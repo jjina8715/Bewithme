@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<style>
+    .test_obj input[type="radio"] {
+        display: none;
+    }
+ 
+    .test_obj input[type="radio"] + span {
+        display: inline-block;
+        padding: 15px 10px;
+        float:left;
+        border: 5px solid #dfdfdf;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+    }
+ 
+    .test_obj input[type="radio"]:checked + span {
+        background-color: #113a6b;
+        color: #ffffff;
+    }
+</style>
+							<h1>Wish Info</h1>
+							<form action="#" method="post">
+							<form action="#" method="post">
+								<p>
+									<label for="birth" class="floatLabel">Gender</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gender" value="Male">
+								    	<span>Male</span>
+									</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gender" value="Female">
+								    	<span>Female</span>
+									</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gender" value="etc">
+								    	<span>both</span>
+								</p>
+								<br>
+								<br>
+								<br>
+									<label for="Age" class="floatLabel">Age</label>
+									<select name="Age" id="Ages">
+									   <option value="10s">10s</option>
+									   <option value="20s">20s</option>
+									   <option value="30s">30s</option>
+									   <option value="Not less than 40">Not less than 40</option>
+									</select>
+ 								<br>
+								<br>
+								<p>
+									<label for="birth" class="floatLabel">Play Time</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gender" value="Male">
+								    	<span>DayTime(9:00~18:00)</span>
+									</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gender" value="Female">
+								    	<span>Afternoon(18:00~24:00)</span>
+									</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gender" value="etc">
+								    	<span>Night(24:00~05:00)</span>
+								</p>
+								<br>
+								<br>
+								<br>
+								<p>
+									<input type="submit" name="Edit wish info" value="Create account">
+								</p>
+							</form>
+						</div>
+					</div>
+			</div>
+		<!-- Scripts -->
+			<script src="/html/assets/jquery.min.js"></script>
+			<script src="/html/assets/browser.min.js"></script>
+			<script src="/html/assets/breakpoints.min.js"></script>
+			<script src="/html/assets/js/util.js"></script>
+			<script src="/html/assets/main.js"></script>
+	</body>
+</html>
