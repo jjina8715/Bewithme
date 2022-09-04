@@ -10,9 +10,49 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+	<div>
+	<div>
+		<button id="approved">approved</button>
+		<button id="requested">requested</button>
+	</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script type="text/javascript">
+	toastr.options = {
+			  "closeButton": true,
+			  "debug": false,
+			  "newestOnTop": false,
+			  "progressBar": true,
+			  "positionClass": "toast-top-right",
+			  "preventDuplicates": false,
+			  "showDuration": "100",
+			  "hideDuration": "1000",
+			  "timeOut": "9000",
+			  "onclick" : null,
+			  "extendedTimeOut": "1000",
+			  "showEasing": "swing",
+			  "hideEasing": "linear",
+			  "showMethod": "fadeIn",
+			  "hideMethod": "fadeOut"
+			}	
+		$('#approved').on('click', function(){
+			toastr.success('<div>000 님이 친구 요청을 수락했습니다! 지금 바로 가볼까요?</div><a href="ajax_js.html"><button type="button">내 친구 정보</button></a></div>');
+		});
+		$('#requested').on('click', function(){
+			toastr.info('<div>000 님으로부터 친구 요청이 왔어요!</div><div><a><button type="button" onclick="alert("freinds!")">승인하기</button></a></div>');
+		});
+        const btn = document.getElementById("btn-btn");
+		btn.addEventListener('click', function(){
+		alert('000님과 친구가 되었습니다');
+		});
+	</script>
+	
+<!--<<<<<<< 알람 기능 >>>>>>>>-->		
 		<!-- Wrapper -->
 			<div id="wrapper">
 				<!-- Header -->
@@ -29,6 +69,9 @@
 									<li><a href="signin.html">Sign in</a></li>
 									<li><a href="signup.html">Sign up</a></li>
 								    <li><a href="ajax_js.html">My Page</a></li>
+									<a href="index.html" class="logo">
+										<span class="symbol"><img src="/img/logo.svg" alt="" /></span><span class="title">Be with me</span>
+									</a>								    
 <!--=======-->
 								
 									<li><a href="/signin">Sign in</a></li>
@@ -83,6 +126,7 @@
 									</div>
 								</a>
 							</article>
+							
 						</section>
 					</div>
 				</div>
