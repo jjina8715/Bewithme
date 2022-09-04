@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.bewithme.app.info.model.MemberInfoDto;
-import com.bewithme.data.type.StatCode;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;

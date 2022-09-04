@@ -2,14 +2,16 @@ package com.bewithme.app.user.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.bewithme.app.user.model.UserDetailDto;
 import com.bewithme.app.user.model.UserDto;
 import com.bewithme.app.user.model.UserSearchCondition;
-import com.bewithme.data.repository.MemberAuthRepository;
+import com.bewithme.data.repository.MatchingInfoRepository;
 import com.bewithme.data.repository.MemberBasicRepository;
+import com.bewithme.data.type.StatCode;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,16 +19,29 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class UserService {
 
-	private final MemberAuthRepository memberAuthRepo;
 	private final MemberBasicRepository memberBasicRepo;
+	private final MatchingInfoRepository matchingInfoRepo;
 
 	public List<UserDto> findUsers(Long id, UserSearchCondition condition) {
+		// 1. 사용중인 user 조회 stat = 사용중, order by lastLogin
+		var users = memberBasicRepo.findByStatOrderByLastLoginDesc(StatCode.C01.getCode());
+		// 2. mate 조회 후 user 조회에서 제외 
+		var mates = matchingInfoRepo.findMyMate(id);
 		
-		return new ArrayList<>();
+		if(mates.isEmpty()) {
+			users = new ArrayList<>(users);
+			users.removeIf(user -> mates.contains(user.getId()));
+		}
+		return users.stream()
+				.map(UserDto::new)
+				.collect(Collectors.toList());
 	}
 
-	public UserDetailDto findUserDetail(UserSearchCondition condition) {
-		// TODO Auto-generated method stub
+	public UserDetailDto findUserDetail(Long id) {
+		// 1. basic info
+		
+		// 2. game info
+		
 		return null;
 	}
 }

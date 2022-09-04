@@ -11,11 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @Entity
 @Builder
+@Getter
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "matching_info")
 public class MatchingInfoEntity extends TimeEntity {
@@ -34,4 +35,5 @@ public class MatchingInfoEntity extends TimeEntity {
 
 	@Column(name = "stat", columnDefinition = "char(4)", nullable = false)
 	private String stat;
+	
 }

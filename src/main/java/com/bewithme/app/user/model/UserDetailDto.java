@@ -11,12 +11,11 @@ public class UserDetailDto {
 	private String birth;
 	private String aboutMe;
 	private String discordUrl;
-	private GameInfo gameInfo;
+	private GameInfo game;
 
 	@Data
 	public class GameInfo {
 		private String gameName;
 		private String comment;
-		
 	}
 }
