@@ -12,7 +12,9 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationSu
 import com.bewithme.app.auth.dto.UserDetails;
 
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Setter
 public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler{
 
@@ -25,7 +27,7 @@ public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
 		
 		if(userService != null) {
 			boolean isSuccess = userService.setAuthnSuccessByUsername(userDetail.getUsername());
-			//log.debug("AuthenticationSuccess User Setting [{}] : {}", userDetail.getUsername(), isSuccess);
+			log.debug("AuthenticationSuccess User Setting [{}] : {}", userDetail.getUsername(), isSuccess);
 		}
 		super.onAuthenticationSuccess(request, response, authentication);
 	}

@@ -22,9 +22,8 @@ public class GameCharacterEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "game_id", nullable = false)
-	private GameEntity game;
+	@Column(name = "game", length = 10, nullable = false)
+	private String game;
 
 	@Column(name = "character_name", length = 30)
 	private String characterName;

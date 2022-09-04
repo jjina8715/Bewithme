@@ -1,6 +1,8 @@
 package com.bewithme.app.configuration.security;
 
 
+import java.time.LocalDateTime;
+
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -46,7 +48,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		try {
 			MemberAuthEntity member = userAuthRepo.findByAuthId(authId)
 					.orElseThrow(() -> new UsernameNotFoundException(String.format("[%s]는 존재하지 않는 아이디입니다.", authId)));
-			//member.getMemberBasic().setLastLogin(LocalDateTime.now());
+			member.getMemberBasic().setLastLogin(LocalDateTime.now());
 			userAuthRepo.save(member);
 			
 			return true;

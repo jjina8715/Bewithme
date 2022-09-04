@@ -36,6 +36,7 @@ public class AuthContoller{
 	@PostMapping("/signup")
 	public String signup(@Valid UserDto userDto, BindingResult errors) {
 		if(errors.hasErrors()) {
+			log.info(errors.getAllErrors().toString());
             return "signup";
         }
 

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.bewithme.app.info.model.MemberInfoDto;
+import com.bewithme.data.type.StatCode;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -52,12 +53,22 @@ public class MemberBasicEntity {
 	@Column(name = "phone_number", columnDefinition = "char(11)")
 	private String phoneNumber;
 
+	@Column(name = "stat", columnDefinition = "char(4)")
+	private String stat;
+	
+	@Column(name = "favorite_game", length = 10)
+	private String favoriteGame;
+	
 	@Column(name = "last_login")
 	private LocalDateTime lastLogin;
 	
+	public void setLastLogin(LocalDateTime lastLogin) {
+		this.lastLogin=lastLogin;
+	}
+	
 	@Builder
 	public MemberBasicEntity(Long id, String name, String nickname, String gender, String birth, String accessTime, 
-			String aboutMe, String discordUrl, String phoneNumber, LocalDateTime lastLogin) {
+			String aboutMe, String discordUrl, String phoneNumber, String stat, String favoriteGame, LocalDateTime lastLogin) {
 		this.id = id;
 		this.name = name;
 		this.nickname = nickname;
@@ -68,6 +79,8 @@ public class MemberBasicEntity {
 		this.discordUrl = discordUrl;
 		this.phoneNumber = phoneNumber;
 		this.lastLogin = lastLogin;
+		this.stat = stat;
+		this.favoriteGame = favoriteGame;
 	}
 	
 	public void updateMemberInfo(MemberInfoDto memberInfoDto) {

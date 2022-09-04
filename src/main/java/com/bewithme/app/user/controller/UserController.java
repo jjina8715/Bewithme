@@ -21,16 +21,16 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
 	private final UserService userService;
-	
+
 	@GetMapping
 	public List<UserDto> findUsers(@AuthenticationPrincipal UserDetails member, UserSearchCondition condition) {
-		
+
 		return userService.findUsers(member.getUser().getMemberBasic().getId(), condition);
 	}
-	
-	@GetMapping("/{id}") 
+
+	@GetMapping("/{id}")
 	public UserDetailDto findUserDetail(UserSearchCondition condition) {
 		return userService.findUserDetail(condition);
 	}
-	 
+
 }
