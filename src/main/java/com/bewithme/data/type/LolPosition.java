@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum PositionLol {
+public enum LolPosition {
 	
 	TOP("TOP", "탑"), 
 	MID("MID", "미드"),  

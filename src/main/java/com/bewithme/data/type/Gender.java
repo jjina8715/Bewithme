@@ -10,9 +10,18 @@ import lombok.Getter;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum Gender {
 
-	MALE("m", "남성"),
-	FEMALE("f", "여성");
+	MALE("m", "male"),
+	FEMALE("f", "female"),
+	ETC("e", "etc");
 	
 	private String code;
 	private String desc;
+	
+	public static Gender of(String gender) {
+		for(var item: Gender.values()) {
+			if(gender.toUpperCase().equals(item.name()))
+				return item;
+		}
+		return ETC;
+	}
 }

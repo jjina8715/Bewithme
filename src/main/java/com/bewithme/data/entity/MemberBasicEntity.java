@@ -9,12 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.bewithme.app.info.model.MemberInfoDto;
 
-@Data
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
 @Builder
+@NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "member_basic")
@@ -50,4 +54,29 @@ public class MemberBasicEntity {
 
 	@Column(name = "last_login")
 	private LocalDateTime lastLogin;
+	
+	@Builder
+	public MemberBasicEntity(Long id, String name, String nickname, String gender, String birth, String accessTime, 
+			String aboutMe, String discordUrl, String phoneNumber, LocalDateTime lastLogin) {
+		this.id = id;
+		this.name = name;
+		this.nickname = nickname;
+		this.gender = gender;
+		this.birth = birth;
+		this.accessTime = accessTime;
+		this.aboutMe = aboutMe;
+		this.discordUrl = discordUrl;
+		this.phoneNumber = phoneNumber;
+		this.lastLogin = lastLogin;
+	}
+	
+	public void updateMemberInfo(MemberInfoDto memberInfoDto) {
+		this.nickname = memberInfoDto.getNickname();
+		this.gender = memberInfoDto.getGender();
+		this.birth = memberInfoDto.getBirth();
+		this.aboutMe = memberInfoDto.getAboutMe();
+		this.discordUrl = memberInfoDto.getDiscordUrl();
+		this.phoneNumber = memberInfoDto.getPhoneNumber();
+	}
+	
 }

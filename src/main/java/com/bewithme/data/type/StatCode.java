@@ -17,4 +17,6 @@ public enum StatCode {
 	private String code;
 	private String matchCode;
 	private String accountCode;
+	
+	
 }

@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bewithme.data.type.Game;
 import com.bewithme.data.type.GameType;
 import com.bewithme.data.type.Gender;
-import com.bewithme.data.type.PositionLol;
-import com.bewithme.data.type.RoleLol;
-import com.bewithme.data.type.ServerBag;
-import com.bewithme.data.type.TierBag;
-import com.bewithme.data.type.TierLol;
+import com.bewithme.data.type.LolPosition;
+import com.bewithme.data.type.LolRole;
+import com.bewithme.data.type.BagServer;
+import com.bewithme.data.type.BagTier;
+import com.bewithme.data.type.LolTier;
 
 @Controller
 @RequestMapping("/codes")
@@ -42,32 +42,32 @@ public class CommonCodeController {
 	
 	@GetMapping("/lol/position")
 	@ResponseBody
-	public List<PositionLol> getLolPositions() {
-		return new ArrayList<>(EnumSet.allOf(PositionLol.class));
+	public List<LolPosition> getLolPositions() {
+		return new ArrayList<>(EnumSet.allOf(LolPosition.class));
 	}
 	
 	@GetMapping("/lol/role")
 	@ResponseBody
-	public List<RoleLol> getLolRoles() {
-		return new ArrayList<>(EnumSet.allOf(RoleLol.class));
+	public List<LolRole> getLolRoles() {
+		return new ArrayList<>(EnumSet.allOf(LolRole.class));
 	}
 	
 	@GetMapping("/lol/tier")
 	@ResponseBody
-	public List<TierLol> getLolTiers() {
-		return new ArrayList<>(EnumSet.allOf(TierLol.class));
+	public List<LolTier> getLolTiers() {
+		return new ArrayList<>(EnumSet.allOf(LolTier.class));
 	}
 	
 	@GetMapping("/bag/server")
 	@ResponseBody
-	public List<ServerBag> getBagServers() {
-		return new ArrayList<>(EnumSet.allOf(ServerBag.class));
+	public List<BagServer> getBagServers() {
+		return new ArrayList<>(EnumSet.allOf(BagServer.class));
 	}
 	
 	@GetMapping("/bag/tier")
 	@ResponseBody
-	public List<TierBag> getBagTiers() {
-		return new ArrayList<>(EnumSet.allOf(TierBag.class));
+	public List<BagTier> getBagTiers() {
+		return new ArrayList<>(EnumSet.allOf(BagTier.class));
 	}
 	
 }

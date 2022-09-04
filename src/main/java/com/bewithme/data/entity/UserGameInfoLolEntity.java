@@ -3,8 +3,6 @@ package com.bewithme.data.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -16,7 +14,6 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Builder
-@Data
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "user_game_info_lol")
 public class UserGameInfoLolEntity {
@@ -26,7 +23,6 @@ public class UserGameInfoLolEntity {
 
 	@Id
 	@Column(name = "summoner_id", length = 30)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String summonerId;
 
 	@OneToOne(fetch = FetchType.LAZY)

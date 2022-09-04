@@ -16,7 +16,6 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Builder
-@Data
 @EqualsAndHashCode(of = { "id" })
 @Table(name = "mate_wish")
 public class MateWishEntity {

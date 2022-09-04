@@ -3,37 +3,35 @@ package com.bewithme.data.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
 @Builder
 @EqualsAndHashCode(callSuper = false)
-@Table(name = "user_game_info_bag")
-public class UserGameInfoBagEntity {
+@Table(name = "game_info")
+public class GameInfoEntity {
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
 	private MemberBasicEntity memberBasic;
-
-	@Id
-	@Column(name = "nickname", length = 16)
-	private String nickname;
 	
-	@Column(name = "tier", columnDefinition = "char(4)")
-	private String tier;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "game_id", nullable = false)
+	private GameEntity game;
 
-	@Column(name = "rp")
-	private Integer rp;
-
-	@Column(name = "server", columnDefinition = "char(4)")
-	private String server;
-
-	@Column(name = "game_type", columnDefinition = "char(4)")
-	private String game_type;
+	@Column(name = "comment", nullable = false, length = 255)
+	private String comment;
 }

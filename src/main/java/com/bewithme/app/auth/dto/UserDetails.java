@@ -1,4 +1,4 @@
-package com.bewithme.app.configuration.security;
+package com.bewithme.app.auth.dto;
 
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
