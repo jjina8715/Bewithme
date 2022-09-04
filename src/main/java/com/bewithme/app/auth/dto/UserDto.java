@@ -52,12 +52,13 @@ public class UserDto {
 	
 	private String aboutMe;
 	
-	public MemberAuthEntity toEntity() {
+	public MemberAuthEntity toEntity(MemberBasicEntity userBasic) {
 		return MemberAuthEntity.builder()
 				.id(id)
 				.authId(email)
 				.authValue(password)
 				.authRole(Role.ROLE_USER.toString())
+				.memberBasic(userBasic) // TODO somi 잘 들어가는지 확인해보기
 				.build();
 	}
 	
