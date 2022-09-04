@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
 	private final UserService userService;
-	
+
 	@GetMapping
 	public List<UserDto> findUsers(@AuthenticationPrincipal UserDetails member, UserSearchCondition condition) {
 		return userService.findUsers(member.getUser().getMemberBasic().getId(), condition);
@@ -32,5 +32,5 @@ public class UserController {
 	public UserDetailDto findUserDetail(@PathVariable Long id) {
 		return userService.findUserDetail(id);
 	}
-	 
+
 }

@@ -9,6 +9,7 @@ import com.bewithme.data.entity.MemberAuthEntity;
 import com.bewithme.data.entity.MemberBasicEntity;
 import com.bewithme.data.type.Gender;
 import com.bewithme.data.type.Role;
+import com.bewithme.data.type.StatCode;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -28,7 +29,7 @@ public class UserDto {
 	private String email;
 	
 	@NotBlank(message="이름은 필수로 입력해주세요.")
-	@Size(min=4, max=20)
+	@Size(min=1, max=20)
 	private String name;
 	
 	@JsonIgnore
@@ -58,7 +59,7 @@ public class UserDto {
 				.authId(email)
 				.authValue(password)
 				.authRole(Role.ROLE_USER.toString())
-				.memberBasic(userBasic) // TODO somi 잘 들어가는지 확인해보기
+				.memberBasic(userBasic)
 				.build();
 	}
 	
@@ -71,6 +72,7 @@ public class UserDto {
 				.discordUrl(discordUrl)
 				.aboutMe(aboutMe)
 				.gender(Gender.of(gender).getCode())
+				.stat(StatCode.C01.getCode())
 				.build();
 	}
 }
