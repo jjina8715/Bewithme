@@ -12,8 +12,6 @@ public class UserDto {
 	private String name;
 	private String nickname;
 	
-	//description
-	private String genderDesc;
 	
 	@Builder
 	public UserDto(Long id, String name, String nickname) {
