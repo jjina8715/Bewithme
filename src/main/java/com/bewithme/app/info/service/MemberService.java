@@ -39,8 +39,7 @@ public class MemberService {
 		MemberBasicEntity userBasic = memberBasicRepo.save(userDto.toBasicEntity());
 log.info("userBasic={}", userBasic);
 		
-		MemberAuthEntity user = userDto.toEntity();
-		user.setMemberBasic(userBasic);
+		MemberAuthEntity user = userDto.toEntity(userBasic);
 	//	user.setAuthId(userDto.getEmail());
 	//	user.setAuthValue(user.getAuthValue());
 		
