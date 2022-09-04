@@ -21,15 +21,9 @@ CREATE TABLE `member_auth` (
   `updated_at` datetime
 );
 
-CREATE TABLE `game` (
-  `id` int PRIMARY KEY,
-  `game_name` varchar(255) not null,
-  `game_image_path` varchar(255)
-);
-
 CREATE TABLE `game_character` (
   `id` int PRIMARY KEY,
-  `game_id` int not null,
+  `game` varchar(10) not null,
   `character_name` varchar(30) not null,
   `character_image_path` varchar(255)
 );
@@ -41,26 +35,6 @@ CREATE TABLE `mate_wish` (
   `age_group` char(4),
   `access_time` char(4),
   `game_type` varchar(255)
-);
-
-CREATE TABLE `user_game_info_lol` (
-  `user_id` int not null,
-  `summoner_id` varchar(30) UNIQUE not null,
-  `role` char(4),
-  `position` char(4),
-  `level` int,
-  `character_id` int,
-  `tier` char(4),
-  `game_type` char(4)
-);
-
-CREATE TABLE `user_game_info_bag` (
-  `user_id` int not null,
-  `nickname` varchar(16) UNIQUE not null,
-  `tier` char(4),
-  `rp` int,
-  `server` char(4),
-  `game_type` char(4)
 );
 
 CREATE TABLE `matching_info` (
@@ -75,15 +49,7 @@ CREATE TABLE `matching_info` (
 
 ALTER TABLE `member_auth` ADD FOREIGN KEY (`user_id`) REFERENCES `member_basic` (`id`);
 
-ALTER TABLE `game_character` ADD FOREIGN KEY (`game_id`) REFERENCES `game` (`id`);
-
 ALTER TABLE `mate_wish` ADD FOREIGN KEY (`user_id`) REFERENCES `member_basic` (`id`);
-
-ALTER TABLE `user_game_info_lol` ADD FOREIGN KEY (`user_id`) REFERENCES `member_basic` (`id`);
-
-ALTER TABLE `user_game_info_lol` ADD FOREIGN KEY (`character_id`) REFERENCES `game_character` (`id`);
-
-ALTER TABLE `user_game_info_bag` ADD FOREIGN KEY (`user_id`) REFERENCES `member_basic` (`id`);
 
 ALTER TABLE `matching_info` ADD FOREIGN KEY (`requester`) REFERENCES `member_basic` (`id`);
 
