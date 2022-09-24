@@ -27,6 +27,8 @@ public class QMemberBasicEntity extends EntityPathBase<MemberBasicEntity> {
 
     public final StringPath discordUrl = createString("discordUrl");
 
+    public final StringPath favoriteGame = createString("favoriteGame");
+
     public final StringPath gender = createString("gender");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
@@ -38,6 +40,8 @@ public class QMemberBasicEntity extends EntityPathBase<MemberBasicEntity> {
     public final StringPath nickname = createString("nickname");
 
     public final StringPath phoneNumber = createString("phoneNumber");
+
+    public final StringPath stat = createString("stat");
 
     public QMemberBasicEntity(String variable) {
         super(MemberBasicEntity.class, forVariable(variable));
