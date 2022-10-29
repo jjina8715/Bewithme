@@ -32,7 +32,7 @@ public class MemberService {
 		memberBasic.updateMemberInfo(memberInfoDto);
 	}
 
-	public MemberAuthEntity createMember(@Valid UserDto userDto) throws UserAlreadyExistsException {
+	public MemberAuthEntity createMember(@Valid UserDto userDto) throws Exception {
 		isExistUsername(userDto.getEmail());
 		
 		userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));

@@ -44,6 +44,8 @@ public class AuthContoller{
 			memberService.createMember(userDto);
 		} catch (UserAlreadyExistsException e) {
 			errors.addError(new ObjectError("error_email", e.getMessage()));
+		} catch (Exception e) {
+
 		}
 		return "signin";
 	}

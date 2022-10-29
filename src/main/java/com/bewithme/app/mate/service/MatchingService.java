@@ -17,11 +17,11 @@ import lombok.RequiredArgsConstructor;
 public class MatchingService {
 
 	private final MemberBasicRepository memberBasicRepo;
-	private final MatchingInfoRepository matchinginfoRepo;
+	private final MatchingInfoRepository matchingInfoRepo;
 	
 	public void requestMatching(MemberBasicEntity requester, Long requesteeId) throws NoSuchElementException{
 		var requestee = memberBasicRepo.findById(requesteeId).orElseThrow();
-		matchinginfoRepo.save(MatchingInfoEntity.builder()
+		matchingInfoRepo.save(MatchingInfoEntity.builder()
 				.requester(requester)
 				.requestee(requestee)
 				.stat(StatCode.C02.getCode())

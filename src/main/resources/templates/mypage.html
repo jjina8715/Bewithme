@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<style>
+    .test_obj input[type="radio"] {
+        display: none;
+    }
+ 
+    .test_obj input[type="radio"] + span {
+        display: inline-block;
+        padding: 15px 10px;
+        border: 5px solid #dfdfdf;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+    }
+ 
+    .test_obj input[type="radio"]:checked + span {
+        background-color: #113a6b;
+        color: #ffffff;
+    }
+ 	#container 
+ 	{
+	width: 960px;
+	margin: 0 auto;
+	text-align: left;
+	}
+	.tab 
+	{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	#tabcontent 
+	{
+		display: block;
+		background-color: #ffffff;
+		padding: 6px 12px;
+		color: #fff;
+	}
+	a
+	{
+		display: inline-block;
+		color: #000;
+		text-align: center;
+		text-decoration: none;
+		padding: 14px 16px;
+		font-size: 17px;
+		transition: 0.3s;
+	}
+	a:visited 
+	{ 
+		color: black; 
+		text-decoration: none;
+		
+	}
+	
+	
+	li 
+	{
+		display: inline-block;
+		color: #000;
+		padding: 14px 16px;
+		font-size: 17px;
+	}
+</style>
+	<head>
+		<title>Generic - Phantom by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+	</head>
+			<!-- Scripts -->
+			<script>
+			
+			var btn = document.getElementsByClassName('btn');
+			
+			for(var i=0; i<btn.length; i++){
+			    btn[i].onclick = function(e){
+			        
+			        var thisIndex = Array.prototype.indexOf.call(btn, e.currentTarget) + 1;
+			        var fileName = 'tab' + thisIndex + '.html';
+			
+			        //////////
+			        var xhttp = new XMLHttpRequest();
+			        xhttp.onreadystatechange = function(){
+			            if(this.readyState == 4 && this.status == 200){
+			                document.getElementById('ajax_div').innerHTML = this.responseText;
+			            }//if
+			        };//onready
+			        xhttp.open('GET', fileName, true);
+			        xhttp.send();
+			
+			    }//onclick
+			}//for
+			
+			</script>
+			<script src="/html/assets/jquery.min.js"></script>
+			<script src="/html/assets/browser.min.js"></script>
+			<script src="/html/assets/breakpoints.min.js"></script>
+			<script src="/html/assets/js/util.js"></script>
+			<script src="/html/assets/main.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="/img/logo.svg" alt="" /></span><span class="title">BE WITH ME</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="signin.html">Sign in</a></li>
+										<li><a href="signup.html">Sign up</a></li>
+									</ul>
+								</nav>
+					</header>
+				<!-- Main -->
+		<div style="position:relative">
+		    <button class="btn">My info</button>
+		    <button class="btn">Wish</button>
+		    <button class="btn">Friends</button>
+		    <button class="btn">My game</button>
+		</div>
+
+			</div>
+	</body>
+</html>

@@ -63,7 +63,7 @@ public class UserDto {
 				.build();
 	}
 	
-	public MemberBasicEntity toBasicEntity() {
+	public MemberBasicEntity toBasicEntity() throws Exception{
 		return MemberBasicEntity.builder()
 				.birth(birth.replaceAll("-",""))
 				.name(name)

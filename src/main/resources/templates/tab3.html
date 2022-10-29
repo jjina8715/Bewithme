@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Phantom by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+<style>
+    .test_obj input[type="radio"] {
+        display: none;
+    }
+ 
+    .test_obj input[type="radio"] + span {
+        display: inline-block;
+        padding: 15px 10px;
+        float:left;
+        border: 5px solid #dfdfdf;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+    }
+ 
+    .test_obj input[type="radio"]:checked + span {
+        background-color: #113a6b;
+        color: #ffffff;
+    }
+</style>
+	<body class="is-preload">
+					<div id="main">
+						<div class="inner">
+							<h1>Game Info</h1>
+							<form action="#" method="post">
+								<p>
+									<label for="Gamename" class="floatLabel">Game Name</label>
+									<input id="Gamename" name="Gamename">
+								</p>
+								<p>
+									<label for="Level" class="floatLabel" min="1" max="99">Level</label>
+									<input id="Level" name="Level" type="number" min="1" max="99">
+								</p>
+								<p>
+									<label for="Tier" class="floatLabel">Tier</label>
+									<input id="Tier" name="Tier">
+								</p>
+								<p>
+									<label for="Main Champion" class="floatLabel">Main Champion</label>
+									<input id="Main Champion" name="Main Champion">
+								</p>
+								<p>
+									<label for="Role" class="floatLabel">Role</label>
+									<input id="Role" name="Role" type="Role">
+									<span>ex)Tank, AD Range, Support</span>
+								</p>
+								<p>
+									<label for="Position" class="floatLabel">Position</label>
+									<input id="Position" name="Position" type="Position">
+									<span>ex)Top, Mid, JG, Bottom</span>
+								</p>
+
+								<p>
+									<label for="Gender" class="floatLabel">Gender</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gametype" value="Enjoying">
+								    	<span>Enjoying</span>
+									</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gametype" value="Hard">
+								    	<span>Hard</span>
+									</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gametype" value="Tough">
+								    	<span>Tough</span>
+							    	</label>
+									<label class="test_obj">
+								    	<input type="radio" name="Gametype" value="Ninja">
+								    	<span>Ninja</span>
+							    	</label>
+								</p>
+							<form action="#" method="post">
+							
+							</form>
+						</div>
+					</div>
+			</div>
+		<!-- Scripts -->
+			<script src="/html/assets/jquery.min.js"></script>
+			<script src="/html/assets/browser.min.js"></script>
+			<script src="/html/assets/breakpoints.min.js"></script>
+			<script src="/html/assets/js/util.js"></script>
+			<script src="/html/assets/main.js"></script>
+
+	</body>
+</html>

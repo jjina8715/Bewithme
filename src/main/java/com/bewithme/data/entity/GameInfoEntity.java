@@ -10,11 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
+@Getter
 @Entity
 @Builder
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "game_info")
 public class GameInfoEntity {
@@ -32,4 +36,8 @@ public class GameInfoEntity {
 
 	@Column(name = "comment", nullable = false, length = 255)
 	private String comment;
+
+	public GameInfoEntity() {
+
+	}
 }
