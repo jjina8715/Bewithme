@@ -15,6 +15,7 @@ import com.bewithme.common.exception.UserAlreadyExistsException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -39,13 +40,12 @@ public class AuthContoller{
 			log.info(errors.getAllErrors().toString());
             return "signup";
         }
-
 		try {
 			memberService.createMember(userDto);
 		} catch (UserAlreadyExistsException e) {
 			errors.addError(new ObjectError("error_email", e.getMessage()));
 		} catch (Exception e) {
-
+			log.error(e.getMessage());
 		}
 		return "signin";
 	}

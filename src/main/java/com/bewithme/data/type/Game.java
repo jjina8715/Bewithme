@@ -27,14 +27,14 @@ public enum Game {
 	private Function<MemberGameInfo, String> gameComment;
 	
 	public String getCode() {
-		return this.name();
+		return name();
 	}
 
-	public static Game of(String code) throws NotFoundException {
+	public static Game of(String code) {
 		return Arrays.stream(values())
-				.filter(e -> StringUtils.equals(e.getCode(), code))
+				.filter(e -> StringUtils.equalsIgnoreCase(e.getCode(), code))
 				.findFirst()
-				.orElseThrow(() -> new NotFoundException(code));
+				.orElse(null);
 	}
 
 }

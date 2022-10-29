@@ -43,41 +43,41 @@
 					
 			<!-- Footer -->
 			<footer id="footer">
-						<div class="inner">
-							<section>
-								<h2>Get in touch</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<input type="text" name="name" id="name" placeholder="Name" />
-										</div>
-										<div class="field half">
-											<input type="email" name="email" id="email" placeholder="Email" />
-										</div>
-										<div class="field">
-											<textarea name="message" id="message" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send" class="primary" /></li>
-									</ul>
-								</form>
-							</section>
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								    <li><a href="https://discord.gg/MEd8M2uDMB" class="icon brands style2 fa-discord"><span class="label">Discord</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				<div class="inner">
+					<section>
+						<h2>Get in touch</h2>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half">
+									<input type="text" name="name" id="name" placeholder="Name" />
+								</div>
+								<div class="field half">
+									<input type="email" name="email" id="email" placeholder="Email" />
+								</div>
+								<div class="field">
+									<textarea name="message" id="message" placeholder="Message"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send" class="primary" /></li>
 							</ul>
-						</div>
-					</footer>
+						</form>
+					</section>
+					<section>
+						<h2>Follow</h2>
+						<ul class="icons">
+							<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://discord.gg/MEd8M2uDMB" class="icon brands style2 fa-discord"><span class="label">Discord</span></a></li>
+							<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</section>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
 		</div>
 	</body>
 	<!-- Scripts -->
@@ -102,16 +102,16 @@
 				let content = '';
 				for(let i = 0; i< users.length; i++){
 					 content += '<article class="style'+(i+1)+'">'
-							+ '<span class="image">'
-							+ '<img src="/img/Aatrox.jpg" alt>'
-							+ '</span>'
-							+ '<a href="elements.html">'
-							+ '<h2>' + users[i].nickname + '</h2>'
-							+ '<div class="content">'
-							+ '<p>POSITION:XXXX</p>'
-							+ '</div>'
-							+ '</a>'
-							+ '</article>';
+								+ '<span class="image">'
+									+ '<img src="/img/Aatrox.jpg" alt>'
+								+ '</span>'
+								+ '<a href="/users/'+users[i].id+'">'
+									+ '<h2>' + users[i].nickname + '</h2>'
+									+ '<div class="content">'
+										+ '<p>POSITION:XXXX</p>'
+									+ '</div>'
+								+ '</a>'
+								+ '</article>';
 				}
 				userList.innerHTML = content;
 			});

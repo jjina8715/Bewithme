@@ -71,7 +71,7 @@ public class UserDto {
 				.nickname(nickname)
 				.discordUrl(discordUrl)
 				.aboutMe(aboutMe)
-				.gender(Gender.of(gender).getCode())
+				.gender(Gender.ofName(gender).getCode())
 				.stat(StatCode.C01.getCode())
 				.build();
 	}
