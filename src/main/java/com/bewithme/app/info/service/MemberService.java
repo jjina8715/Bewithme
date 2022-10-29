@@ -34,7 +34,7 @@ public class MemberService {
 
 	public MemberAuthEntity createMember(@Valid UserDto userDto) throws Exception {
 		isExistUsername(userDto.getEmail());
-		
+
 		userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
 		MemberBasicEntity userBasic = memberBasicRepo.save(userDto.toBasicEntity());
 log.info("userBasic={}", userBasic);

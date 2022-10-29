@@ -29,8 +29,11 @@ public class WishController {
 	}
 	
 	@PostMapping
-	public String postWish(@AuthenticationPrincipal UserDetails member) {
+	public String postWish(@AuthenticationPrincipal UserDetails member, MemberWishDto memberWishDto) {
 		var memberBasic = member.getUser().getMemberBasic();
+		wishService.createMemberwish(memberBasic, memberWishDto);
+		
+		return "";
 	}
 	
 }

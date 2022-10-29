@@ -1,6 +1,9 @@
 package com.bewithme.app.info.model;
 
 import com.bewithme.data.entity.MateWishEntity;
+import com.bewithme.data.entity.MemberBasicEntity;
+import com.bewithme.data.type.Gender;
+import com.bewithme.data.type.StatCode;
 
 import lombok.Builder;
 import lombok.Data;
@@ -27,5 +30,12 @@ public class MemberWishDto {
 		this.ageGroup = mateWish.getAgeGroup();
 		this.accessTime = mateWish.getAcessTime();
 		this.gameType = mateWish.getGameType();
+	}
+	
+	public MateWishEntity toEntity(MemberBasicEntity memberBasic){
+		return MateWishEntity.builder()
+//				.gender(Gender.of(gender).getCode())
+//				.ageGroup(ageGroup)
+				.build();
 	}
 }
