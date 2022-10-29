@@ -15,8 +15,9 @@ import com.bewithme.app.user.model.UserSearchCondition;
 import com.bewithme.app.user.service.UserService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller()
+@RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
 public class UserController {
@@ -29,7 +30,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/{id}") 
-	public UserDetailDto findUserDetail(@PathVariable Long id) {
+	public UserDetailDto findUserDetail(@PathVariable Long id) throws Exception{
 		return userService.findUserDetail(id);
 	}
 

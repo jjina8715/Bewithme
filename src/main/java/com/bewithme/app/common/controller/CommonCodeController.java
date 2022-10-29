@@ -1,4 +1,4 @@
-package com.bewithme.app.controller;
+package com.bewithme.app.common.controller;
 
 import java.util.ArrayList;
 import java.util.EnumSet;

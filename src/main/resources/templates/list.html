@@ -1,10 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+
+<html lang="ko"
+	xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<title>bewithme</title>
 		<meta charset="utf-8" />
@@ -14,108 +11,38 @@
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<!-- Logo -->
+					<a href="index.html" class="logo">
+						<span class="symbol"><img src="/img/logo.svg" alt="" /></span><span class="title">Be with me</span>
+					</a>
+					<nav>
+						<ul>
+							<li><a href="signin.html">Sign in</a></li>
+							<li><a href="signup.html">Sign up</a></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+			<!-- Main -->
+			<div id="main">
+					<div class="inner">
+						<header>
+							<h1>Find your game mate in BeWithMe!</a></h1> <!-- 占싸깍옙占쏙옙 占쏙옙占쏙옙 占싱듸옙 -->
+						</header>
 
-				<!-- Header -->
-					<header id="header">
-						<div class="inner">
 
-							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<span class="symbol"><img src="/img/logo.svg" alt="" /></span><span class="title">Be with me</span>
-								</a>
-								
-								<nav>
-				<nav>
-					<ul>
-						<li><a href="signin.html">Sign in</a></li>
-						<li><a href="signup.html">Sign up</a></li>
-					</ul>
-				</nav>
-				</header>
-					</header>
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<header>
-								<h1>Find your game mate in BeWithMe!</a></h1> <!-- 로그인 세션 이동 -->
-							</header>
-							
-							
-							<section class="tiles">
-								<article class="style1">
-									<span class="image">
-										<img src="/img/Aatrox.jpg" alt><!--이미지 호출 및 출력-->
-									<!--게임 카테고리, 레벨 등 유저 정보 필요-->
-									</span>
-									<a href="elements.html"><!--추천유저 이름 출력-->
-										<h2>MATE1</h2>
-										<div class	="content">
-											<p>POSITION:XXXX</p><!--추천유저 포지션 데이터 호출 및 출력-->
-										</div>
-									</a>
-								</article>
-								<article class="style2">
-									<span class="image">
-										<img src="/img/Ahri.jpg" alt><!--이미지 호출 및 출력-->
-									</span>
-									<a href="elements.html"><!--추천유저 이름 출력-->
-										<h2>MATE2</h2>
-										<div class	="content">
-											<p>POSITION:XXXX</p><!--추천유저 포지션 데이터 호출 및 출력-->
-										</div>
-									</a>
-								</article>
-								<article class="style3">
-									<span class="image">
-										<img src="/img/Akali.png" alt><!--이미지 호출 및 출력-->
-									</span>
-									<a href="detail.html"><!--추천유저 이름 출력-->
-										<h2>MATE3</h2>
-										<div class	="content">
-											<p>POSITION:XXXX</p><!--추천유저 포지션 데이터 호출 및 출력-->
-										</div>
-									</a>
-								</article>
-								<article class="style4">
-									<span class="image">
-										<img src="/img/Akshan.jpg" alt><!--이미지 호출 및 출력-->
-									</span>
-									<a href="elements.html"><!--추천유저 이름 출력-->
-										<h2>MATE3</h2>
-										<div class	="content">
-											<p>POSITION:XXXX</p><!--추천유저 포지션 데이터 호출 및 출력-->
-										</div>
-									</a>
-								</article>
-								<article class="style5">
-									<span class="image">
-										<img src="/img/Alistar.jpg" alt><!--이미지 호출 및 출력-->
-									</span>
-									<a href="elements.html"><!--추천유저 이름 출력-->
-										<h2>MATE3</h2>
-										<div class	="content">
-											<p>POSITION:XXXX</p><!--추천유저 포지션 데이터 호출 및 출력-->
-										</div>
-									</a>
-								</article>
-								<article class="style6">
-									<span class="image">
-										<img src="/img/Amumu.jpg" alt><!--이미지 호출 및 출력-->
-									</span>
-									<a href="detail.html"><!--추천유저 이름 출력-->
-										<h2>MATE3</h2>
-										<div class	="content">
-											<p>POSITION:XXXX</p><!--추천유저 포지션 데이터 호출 및 출력-->
-										</div>
-									</a>
-								</article>
-							</section>
-						</div>
+						<section class="tiles" id="user-list">
+
+						</section>
 					</div>
+				</div>
 					
-				<!-- Footer -->
-					<footer id="footer">
+			<!-- Footer -->
+			<footer id="footer">
 						<div class="inner">
 							<section>
 								<h2>Get in touch</h2>
@@ -151,15 +78,44 @@
 							</ul>
 						</div>
 					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="/js/jquery.min.js"></script>
-			<script src="/js/browser.min.js"></script>
-			<script src="/js/breakpoints.min.js"></script>
-			<script src="/js/util.js"></script>
-			<script src="/js/main.js"></script>
-
+		</div>
 	</body>
+	<!-- Scripts -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/browser.min.js"></script>
+	<script src="/js/breakpoints.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/main.js"></script>
+	<script th:inline="javascript">
+		$(document).ready(function () {
+			getUserList();
+		});
+
+		function getUserList() {
+			$.ajax({
+				url: '/users',
+				type: 'get',
+				dataType: 'json',
+				contentType: 'application/json',
+			}).done(function(users){
+				const userList = document.querySelector("#user-list");
+				let content = '';
+				for(let i = 0; i< users.length; i++){
+					 content += '<article class="style'+(i+1)+'">'
+							+ '<span class="image">'
+							+ '<img src="/img/Aatrox.jpg" alt>'
+							+ '</span>'
+							+ '<a href="elements.html">'
+							+ '<h2>' + users[i].nickname + '</h2>'
+							+ '<div class="content">'
+							+ '<p>POSITION:XXXX</p>'
+							+ '</div>'
+							+ '</a>'
+							+ '</article>';
+				}
+				userList.innerHTML = content;
+			});
+		}
+
+	</script>
 </html>

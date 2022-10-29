@@ -24,7 +24,7 @@ public class InfoController {
 	public MemberInfoDto getMemberInfo(@AuthenticationPrincipal UserDetails member) {
 		var memberBasic = member.getUser().getMemberBasic();
 		var memberInfo = new MemberInfoDto(memberBasic);
-		memberInfo.setEmail(member.getUsername());
+		//memberInfo.setEmail(member.getUsername());
 		return memberInfo;
 	}
 	

@@ -2,8 +2,12 @@ package com.bewithme.data.type;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.thymeleaf.util.StringUtils;
+
+import java.util.Arrays;
 
 @Getter
 @AllArgsConstructor
@@ -17,11 +21,8 @@ public enum Gender {
 	private String code;
 	private String desc;
 	
-	public static Gender of(String gender) {
-		for(var item: Gender.values()) {
-			if(gender.toUpperCase().equals(item.name()))
-				return item;
-		}
-		return ETC;
+	public static Gender of(String code) throws NotFoundException {
+		return Arrays.stream(values()).filter(e -> StringUtils.equals(e.code, code))
+				.findFirst().orElseThrow(() -> new NotFoundException(code));
 	}
 }
