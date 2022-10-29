@@ -33,7 +33,8 @@ public class UserService {
 		var users = memberBasicRepo.findByStatOrderByLastLoginDesc(C01.getCode());
 		// 2. mate 조회 후 user 조회에서 제외 
 		var mates = matchingInfoRepo.findMyMateId(id);
-		
+		mates.add(id); // 자신 제외
+
 		if(!mates.isEmpty()) {
 			users = new ArrayList<>(users);
 			users.removeIf(user -> mates.contains(user.getId()));

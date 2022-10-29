@@ -22,7 +22,12 @@ public enum Gender {
 	private String desc;
 	
 	public static Gender of(String code) throws NotFoundException {
-		return Arrays.stream(values()).filter(e -> StringUtils.equals(e.code, code))
+		return Arrays.stream(values()).filter(e -> StringUtils.equalsIgnoreCase(e.code, code))
 				.findFirst().orElseThrow(() -> new NotFoundException(code));
+	}
+
+	public static Gender ofName(String name) throws NotFoundException {
+		return Arrays.stream(values()).filter(e -> StringUtils.equalsIgnoreCase(e.name(), name))
+				.findFirst().orElseThrow(() -> new NotFoundException(name));
 	}
 }

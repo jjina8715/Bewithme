@@ -36,16 +36,13 @@ public class MemberService {
 		isExistUsername(userDto.getEmail());
 
 		userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
-		MemberBasicEntity userBasic = memberBasicRepo.save(userDto.toBasicEntity());
-log.info("userBasic={}", userBasic);
-		
+		var userBasic = userDto.toBasicEntity();
+		var savedUserBasic = memberBasicRepo.save(userBasic);
+	log.info("userBasic={}", savedUserBasic);
 		MemberAuthEntity user = userDto.toEntity(userBasic);
-	//	user.setAuthId(userDto.getEmail());
-	//	user.setAuthValue(user.getAuthValue());
 		
 log.info("member={}",user);
 log.info("memberBasic={}",user.getMemberBasic());
-//		MemberBasicEntity memberBasic = memberBasicRepo.save(user.getMemberBasic());
 		
 		return memberAuthRepo.save(user);
 	}

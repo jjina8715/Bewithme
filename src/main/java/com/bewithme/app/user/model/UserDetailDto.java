@@ -5,6 +5,7 @@ import com.bewithme.data.entity.MemberBasicEntity;
 import com.bewithme.data.type.Game;
 import com.bewithme.data.type.Gender;
 import javassist.NotFoundException;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 
@@ -19,21 +20,24 @@ public class UserDetailDto {
 	private GameInfo game;
 
 	@Data
+	@AllArgsConstructor
 	public class GameInfo {
 		private String gameName;
 		private String comment;
 	}
+
 	public UserDetailDto(MemberBasicEntity memberBasic) throws Exception{
 		this.id = memberBasic.getId();
 		this.nickname = memberBasic.getNickname();
-		this.gender = Gender.of(gender).getDesc();
+		this.gender = Gender.of(memberBasic.getGender()).getDesc();
 		this.birth = memberBasic.getBirth();
 		this.aboutMe = memberBasic.getAboutMe();
 		this.discordUrl = memberBasic.getDiscordUrl();
 	}
 
-	public void setGameInfo(GameInfoEntity gameInfo) throws NotFoundException {
-		this.game.gameName = Game.of(gameInfo.getGame()).getKorName();
-		this.game.comment = gameInfo.getComment();
+	public void setGameInfo(GameInfoEntity gameInfo) {
+		var gameName = Game.of(gameInfo.getGame()).getKorName();
+		var comment = gameInfo.getComment();
+		this.game = new GameInfo(gameName, comment);
 	}
 }

@@ -46,7 +46,7 @@ public class MemberBasicEntity {
 	@Column(name = "about_me", length = 100)
 	private String aboutMe;
 
-	@Column(name = "discord_url", length = 255)
+	@Column(name = "discord_url")
 	private String discordUrl;
 
 	@Column(name = "phone_number", columnDefinition = "char(11)")
