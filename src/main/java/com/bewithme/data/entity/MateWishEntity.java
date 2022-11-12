@@ -12,8 +12,10 @@ import javax.persistence.Table;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
 @Entity
+@Getter
 @Builder
 @EqualsAndHashCode(of = { "id" })
 @Table(name = "mate_wish")
@@ -34,8 +36,9 @@ public class MateWishEntity {
 	private String ageGroup;
 
 	@Column(name = "access_time", columnDefinition = "char(4)")
-	private String acessTime;
+	private String accessTime;
 
 	@Column(name = "game_type", length = 255)
 	private String gameType;
+
 }

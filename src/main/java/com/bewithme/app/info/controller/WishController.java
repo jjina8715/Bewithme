@@ -2,26 +2,42 @@ package com.bewithme.app.info.controller;
 
 import javax.validation.Valid;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.bewithme.app.auth.dto.UserDetails;
 import com.bewithme.app.info.model.MemberWishDto;
+import com.bewithme.app.info.service.WishService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @RequestMapping("/info/wish")
-@Controller
+@RestController
 public class WishController {
 	
-	//private final MemberService memberService;
+	private final WishService wishService;
 	
 	@GetMapping
-	public String getWish() {
-		return "wish";
+	public MemberWishDto getWish(@AuthenticationPrincipal UserDetails member) {
+		var memberBasic = member.getUser().getMemberBasic();
+		return wishService.getByMember(memberBasic);
 	}
 	
 	@PostMapping
-	public String createWish(@Valid MemberWishDto wishDto) {
-		return "index";
+	public String postWish(@AuthenticationPrincipal UserDetails member, MemberWishDto memberWishDto) {
+		var memberBasic = member.getUser().getMemberBasic();
+		try {
+		wishService.createMemberwish(memberBasic, memberWishDto);
+		}
+		catch(Exception e) {
+			return "";
+		}
+		return "";
 	}
+	
 }
