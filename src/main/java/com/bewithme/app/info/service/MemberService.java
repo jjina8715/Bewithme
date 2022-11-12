@@ -36,9 +36,8 @@ public class MemberService {
 		isExistUsername(userDto.getEmail());
 
 		userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
-		var userBasic = userDto.toBasicEntity();
-		var savedUserBasic = memberBasicRepo.save(userBasic);
-	log.info("userBasic={}", savedUserBasic);
+		var userBasic =  memberBasicRepo.save(userDto.toBasicEntity());
+	log.info("userBasic={}", userBasic);
 		MemberAuthEntity user = userDto.toEntity(userBasic);
 		
 log.info("member={}",user);
@@ -48,7 +47,7 @@ log.info("memberBasic={}",user.getMemberBasic());
 	}
 	
 	public boolean isExistUsername(String username) throws UserAlreadyExistsException{
-		memberAuthRepo.findByAuthId(username).ifPresent(s -> new UserAlreadyExistsException("이미 존재하는 이메일입니다."));			
+		memberAuthRepo.findByAuthId(username).ifPresent(s -> { throw new UserAlreadyExistsException("이미 존재하는 이메일입니다."); });
 		
 		return true;
 	}
