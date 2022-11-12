@@ -5,6 +5,7 @@ import com.bewithme.data.entity.MemberBasicEntity;
 import com.bewithme.data.type.Gender;
 import com.bewithme.data.type.StatCode;
 
+import javassist.NotFoundException;
 import lombok.Builder;
 import lombok.Data;
 
@@ -28,14 +29,24 @@ public class MemberWishDto {
 		this.id = mateWish.getId();
 		this.gender = mateWish.getGender();
 		this.ageGroup = mateWish.getAgeGroup();
-		this.accessTime = mateWish.getAcessTime();
+		this.accessTime = mateWish.getAccessTime();
 		this.gameType = mateWish.getGameType();
 	}
 	
-	public MateWishEntity toEntity(MemberBasicEntity memberBasic){
+	public MateWishEntity toEntity(MemberBasicEntity memberBasic) throws Exception{
 		return MateWishEntity.builder()
-//				.gender(Gender.of(gender).getCode())
-//				.ageGroup(ageGroup)
+				.memberBasic(memberBasic)
+				.gender(Gender.ofName(gender).getCode())				
+				.ageGroup(ageGroup)
+				.accessTime(accessTime)
+				.gameType(gameType)
 				.build();
 	}
+	public void updateMemberWish(MemberWishDto memberWishDto) {
+		this.gender = memberWishDto.getGender();
+		this.ageGroup = memberWishDto.getAgeGroup();
+		this.accessTime = memberWishDto.getAccessTime();
+		this.gameType = memberWishDto.getGameType();
+	}
+
 }

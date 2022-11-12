@@ -18,26 +18,22 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Service
 public class WishService {
-	
+
 	private final MateWishRepository mateWishRepo;
-	
+
 	@Transactional(readOnly = true)
 	public MemberWishDto getByMember(MemberBasicEntity member) {
 		MateWishEntity mateWish = mateWishRepo.findByMemberBasic(member);
 		return new MemberWishDto(mateWish);
 	}
+
+	@Transactional
+	public void createMemberwish(MemberBasicEntity memberBasic, MemberWishDto memberWishDto) throws Exception {
+		mateWishRepo.save(memberWishDto.toEntity(memberBasic));
+	}
 	
 	@Transactional
-	public void createMemberwish(MemberBasicEntity memberBasic, MemberWishDto memberWishDto) {
-//		var memberBasic = memberAuthRepo.getById(id).getMemberBasic();
-//		memberBasic.updateMemberInfo(memberInfoDto);
-		
-		MateWishEntity mateWish = mateWishRepo.save(memberWishDto.toEntity(memberBasic));
-//log.info("userBasic={}", memberWishDto);
-		
-//		MemberAuthEntity user = userDto.toEntity(userBasic);
-	//	user.setAuthId(userDto.getEmail());
-	//	user.setAuthValue(user.getAuthValue());
-		
+	public void updateMemberwish(MemberBasicEntity memberBasic, MemberWishDto memberWishDto) throws Exception {
+		memberWishDto.updateMemberWish(memberWishDto);
 	}
 }

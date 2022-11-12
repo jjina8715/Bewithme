@@ -31,8 +31,12 @@ public class WishController {
 	@PostMapping
 	public String postWish(@AuthenticationPrincipal UserDetails member, MemberWishDto memberWishDto) {
 		var memberBasic = member.getUser().getMemberBasic();
+		try {
 		wishService.createMemberwish(memberBasic, memberWishDto);
-		
+		}
+		catch(Exception e) {
+			return "";
+		}
 		return "";
 	}
 	
