@@ -3,6 +3,7 @@ package com.bewithme.app.info.model;
 import com.bewithme.data.entity.MemberBasicEntity;
 import com.bewithme.data.type.Gender;
 
+import javassist.NotFoundException;
 import lombok.Builder;
 import lombok.Data;
 
@@ -35,12 +36,12 @@ public class MemberInfoDto {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public MemberInfoDto(MemberBasicEntity memberBasic) {
+	public MemberInfoDto(MemberBasicEntity memberBasic) throws NotFoundException {
 		this.id = memberBasic.getId();
 		this.name = memberBasic.getName();
 		this.nickname = memberBasic.getNickname();
 		this.gender = memberBasic.getGender();
-		this.genderDesc = Gender.valueOf(gender).getDesc();
+		this.genderDesc = Gender.of(gender).getDesc();
 		this.birth = memberBasic.getBirth();
 		this.aboutMe = memberBasic.getAboutMe();
 		this.discordUrl = memberBasic.getDiscordUrl();

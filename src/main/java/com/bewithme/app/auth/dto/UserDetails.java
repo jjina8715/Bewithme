@@ -20,7 +20,6 @@ public class UserDetails extends User{
 		
     public UserDetails(MemberAuthEntity user, boolean enabled, boolean accountNonExpired,
             boolean credentialsNonExpired, boolean accountNonLocked) {
-
         super(user.getAuthId(), user.getAuthValue(),
                 enabled, accountNonExpired, credentialsNonExpired, accountNonLocked,
                 AuthorityUtils.createAuthorityList(user.getAuthRole()));
