@@ -10,7 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.bewithme.data.type.StatCode;
 import lombok.*;
+import org.thymeleaf.util.StringUtils;
+
+import static com.bewithme.data.type.StatCode.*;
 
 @Entity
 @Builder
@@ -35,5 +39,24 @@ public class MatchingInfoEntity extends TimeEntity {
 
 	@Column(name = "stat", columnDefinition = "char(4)", nullable = false)
 	private String stat;
-	
+
+	public void approveRequest() {
+		this.stat = C01.getCode();
+	}
+
+	public void cancelMate() {
+		this.stat = C00.getCode();
+	}
+
+	public boolean isApproved() {
+		return StringUtils.equals(this.stat, C01.getCode());
+	}
+
+	public boolean isWaited() {
+		return StringUtils.equals(this.stat, C02.getCode());
+	}
+
+	public boolean isMyMate(Long id) {
+		return id == requestee.getId() || id == requester.getId();
+	}
 }

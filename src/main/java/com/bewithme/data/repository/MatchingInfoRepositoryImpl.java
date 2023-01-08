@@ -7,6 +7,7 @@ import static com.bewithme.data.type.StatCode.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.bewithme.app.mate.model.MateDto;
 import com.bewithme.data.entity.MatchingInfoEntity;
 import com.bewithme.data.entity.MemberBasicEntity;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -18,26 +19,28 @@ public class MatchingInfoRepositoryImpl implements MatchingInfoRepositoryCustom{
 
 	private final JPAQueryFactory jpaQueryFactory;
 
-	private List<MatchingInfoEntity> findMyMate(Long id) {
+	public List<MatchingInfoEntity> findMyMates(Long memberId) {
 		 return jpaQueryFactory.select(matchingInfoEntity)
 				.from(matchingInfoEntity)
-				.where(matchingInfoEntity.requester.id.eq(id)
-						.or(matchingInfoEntity.requestee.id.eq(id))
+				.where(matchingInfoEntity.requester.id.eq(memberId)
+						.or(matchingInfoEntity.requestee.id.eq(memberId))
 						.and(matchingInfoEntity.stat.eq(C01.getCode())))
 				.fetch();
 	}
 
-	public List<Long> findMyMateId(Long id) {
-		return findMyMate(id)
+	public List<Long> findMyMateMemberId(Long id) {
+		return findMyMates(id)
 				.stream()
-				.map(e -> e.getRequestee().equals(id) ? e.getRequester().getId() : e.getRequestee().getId())
+				.map(e -> e.getRequestee().getId().equals(id) ? e.getRequester().getId() : e.getRequestee().getId())
 				.collect(Collectors.toList());
 	}
 
-	public List<MemberBasicEntity> findMyMateInfo(Long id) {
-		return findMyMate(id)
+	public List<MateDto> findMyMateInfo(Long memberId) {
+		return findMyMates(memberId)
 				.stream()
-				.map(e -> e.getRequestee().equals(id) ? e.getRequester() : e.getRequestee())
-				.collect(Collectors.toList());
+				.map(e -> {
+					var mateBasic = e.getRequestee().getId().equals(memberId) ? e.getRequester() : e.getRequestee();
+					return new MateDto(e.getId(), mateBasic.getNickname());
+				}).collect(Collectors.toList());
 	}
 }

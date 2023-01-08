@@ -2,7 +2,6 @@ package com.bewithme.app.user.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import com.bewithme.data.entity.GameInfoEntity;
@@ -14,7 +13,6 @@ import com.bewithme.app.user.model.UserDto;
 import com.bewithme.app.user.model.UserSearchCondition;
 import com.bewithme.data.repository.MatchingInfoRepository;
 import com.bewithme.data.repository.MemberBasicRepository;
-import com.bewithme.data.type.StatCode;
 
 import lombok.RequiredArgsConstructor;
 
@@ -32,7 +30,7 @@ public class UserService {
 		// 1. 사용중인 user 조회 stat = 사용중, order by lastLogin
 		var users = memberBasicRepo.findByStatOrderByLastLoginDesc(C01.getCode());
 		// 2. mate 조회 후 user 조회에서 제외 
-		var mates = matchingInfoRepo.findMyMateId(id);
+		var mates = matchingInfoRepo.findMyMateMemberId(id);
 		mates.add(id); // 자신 제외
 
 		if(!mates.isEmpty()) {

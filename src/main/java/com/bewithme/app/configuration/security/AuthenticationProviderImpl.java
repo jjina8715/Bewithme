@@ -27,7 +27,7 @@ public class AuthenticationProviderImpl implements AuthenticationProvider{
 		UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken)authentication;
 		String email = (String)token.getPrincipal();
 		String pwd = (String)token.getCredentials();
-		UserDetails userDetailsImpl = (UserDetails) userService.loadUserByUsername(email);
+		UserDetails userDetailsImpl = userService.loadUserByUsername(email);
 		log.info("email={} password={}",email,pwd);
 		if(!passwordEncoder.matches(userDetailsImpl.getPassword(), pwd)) {
 			throw new BadCredentialsException(userDetailsImpl.getUsername()+" Invaild password");
