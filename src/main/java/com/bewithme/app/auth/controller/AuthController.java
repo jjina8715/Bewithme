@@ -17,12 +17,11 @@ import com.bewithme.common.exception.UserAlreadyExistsException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Slf4j
 @RequiredArgsConstructor
 @Controller
-public class AuthContoller {
+public class AuthController {
 
 	private final MemberService memberService;
 

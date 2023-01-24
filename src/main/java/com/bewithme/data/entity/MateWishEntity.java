@@ -13,10 +13,11 @@ import javax.persistence.Table;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Entity
 @Getter
-@Builder
+@RequiredArgsConstructor
 @EqualsAndHashCode(of = { "id" })
 @Table(name = "mate_wish")
 public class MateWishEntity {

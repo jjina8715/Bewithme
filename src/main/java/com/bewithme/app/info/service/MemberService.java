@@ -69,7 +69,6 @@ log.info("memberBasic={}",user.getMemberBasic());
 
 	public MemberInfoDto getMemberInfo(Long id) throws NotFoundException {
 		var memberBasic = memberBasicRepo.findById(id).orElseThrow(() -> new RuntimeException("정보를 불러올 수 없습니다."));
-		System.out.println(memberBasic);
 		return new MemberInfoDto(memberBasic);
 	}
 	

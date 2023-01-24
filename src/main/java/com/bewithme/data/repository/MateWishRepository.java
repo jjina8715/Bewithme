@@ -10,6 +10,6 @@ import com.bewithme.data.entity.MemberBasicEntity;
 
 public interface MateWishRepository extends JpaRepository<MateWishEntity, Long>{
 	
-	MateWishEntity findByMemberBasic(MemberBasicEntity member);
+	Optional<MateWishEntity> findByMemberBasic(MemberBasicEntity member);
 
 }

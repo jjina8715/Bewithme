@@ -9,7 +9,7 @@
 		<title>Elements - Phantom by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="/css/main.css" />
 		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -34,15 +34,15 @@
 			<!-- Main -->
 			<div id="main">
 				<div class="inner">
-					<h1  th:text="${user.nickname}"></h1>
+					<h1 th:text="${user.nickname}"></h1>
 					<!-- Text -->
 					<section>
 						<img src="img/Aatrox.jpg" alt="" />
 						<p><b>Hello, everyone!</b></p>
-						<p>info1</p>
-						<p>info2</p>
+						<p th:text="${user.aboutMe}"></p>
+						<p th:text="${user.game.comment}"></p>
 						<p><a href="#">link</a>.</p>
-					<section>
+					</section>
 					<div class="col-12">
 						<ul class="actions">
 							<li><input type="submit" value="Send Message" class="primary" /></li>
@@ -101,7 +101,7 @@
 
 	$(document).ready(function () {
 		/*<![CDATA[*/
-		var userInfo = /*[[${user}]]*/;
+		var userInfo = /*[[${user}]]*/
 		/*]]>*/
 		console.log(userInfo);
 	});

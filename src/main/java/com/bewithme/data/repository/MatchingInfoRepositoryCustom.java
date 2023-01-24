@@ -1,11 +1,12 @@
 package com.bewithme.data.repository;
 
-import com.bewithme.data.entity.MemberBasicEntity;
+import com.bewithme.app.mate.model.MateDto;
+import com.bewithme.data.entity.MatchingInfoEntity;
 
 import java.util.List;
 
 public interface MatchingInfoRepositoryCustom {
-
-	List<Long> findMyMateId(Long id);
-	List<MemberBasicEntity> findMyMateInfo(Long id);
+	List<MatchingInfoEntity> findMyMates(Long id);
+	List<Long> findMyMateMemberId(Long id);
+	List<MateDto> findMyMateInfo(Long id);
 }
