@@ -5,6 +5,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.bewithme.app.info.model.MemberWishDto;
+import com.bewithme.data.entity.MateWishEntity;
 import com.bewithme.data.entity.MemberAuthEntity;
 import com.bewithme.data.entity.MemberBasicEntity;
 import com.bewithme.data.type.Gender;
@@ -53,6 +55,11 @@ public class UserDto {
 	
 	private String aboutMe;
 	
+	private String wishGender;
+	private String wishAgeGroup;
+	private String wishAccessTime;
+	private String wishGameType;
+	
 	public MemberAuthEntity toEntity(MemberBasicEntity userBasic) {
 		return MemberAuthEntity.builder()
 				.id(id)
@@ -73,6 +80,16 @@ public class UserDto {
 				.aboutMe(aboutMe)
 				.gender(Gender.ofName(gender).getCode())
 				.stat(StatCode.C01.getCode())
+				.build();
+	}
+	
+	public MateWishEntity toWishEntity(MemberBasicEntity userBasic) throws Exception {
+		return MateWishEntity.builder()
+				.memberBasic(userBasic)
+				.gender(Gender.ofName(gender).getCode())				
+				.ageGroup(wishAgeGroup)
+				.accessTime(wishAccessTime)
+				.gameType(wishGameType)
 				.build();
 	}
 }

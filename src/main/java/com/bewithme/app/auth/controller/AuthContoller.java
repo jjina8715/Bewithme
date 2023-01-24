@@ -1,5 +1,7 @@
 package com.bewithme.app.auth.controller;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -35,7 +37,7 @@ public class AuthContoller {
 	}
 
 	@PostMapping("/signup")
-	public String signup(@Valid UserDto userDto, BindingResult errors) {
+	public String signup(@Valid UserDto userDto, HttpServletRequest request, BindingResult errors) throws ServletException {
 		if (errors.hasErrors()) {
 			log.info(errors.getAllErrors().toString());
 			return "signup";
@@ -49,6 +51,7 @@ public class AuthContoller {
 			log.error(e.getMessage());
 			return "signup";
 		}
-		return "signin";
+		memberService.login(userDto);
+		return "redirect:/info/wish";
 	}
 }

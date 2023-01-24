@@ -1,8 +1,14 @@
 package com.bewithme.app.info.service;
 
+import java.util.Collections;
+
 import javax.validation.Valid;
 
 import javassist.NotFoundException;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +33,13 @@ public class MemberService {
 	private final MemberAuthRepository memberAuthRepo;
 	private final MemberBasicRepository memberBasicRepo;
 
+	 public void login(UserDto userDto) {
+	 log.info("userDto="+userDto.toString());
+    UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userDto.getEmail(),
+            userDto.getPassword(), Collections.singleton(new SimpleGrantedAuthority("ROLE_USER")));
+    SecurityContextHolder.getContext().setAuthentication(token); // AuthenticationManager를 쓰는 방법이 정석적인 방ㅇ법
+    }
+	 
 	@Transactional
 	public void updateMemberInfo(Long id, MemberInfoDto memberInfoDto) {
 		var memberBasic = memberAuthRepo.getById(id).getMemberBasic();
@@ -38,8 +51,9 @@ public class MemberService {
 
 		userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
 		var userBasic =  memberBasicRepo.save(userDto.toBasicEntity());
-	log.info("userBasic={}", userBasic);
+log.info("userBasic={}", userBasic);
 		MemberAuthEntity user = userDto.toEntity(userBasic);
+		userDto.toWishEntity(userBasic);
 		
 log.info("member={}",user);
 log.info("memberBasic={}",user.getMemberBasic());
@@ -58,4 +72,5 @@ log.info("memberBasic={}",user.getMemberBasic());
 		System.out.println(memberBasic);
 		return new MemberInfoDto(memberBasic);
 	}
+	
 }

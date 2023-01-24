@@ -10,4 +10,8 @@ public class IndexController {
 	public String index() {
 		return "index.html";
 	}
+	@GetMapping("/info/wish")
+	public String wish() {
+		return "tab2.html";
+	}
 }
