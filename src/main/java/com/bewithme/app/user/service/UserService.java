@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.bewithme.data.entity.GameInfoEntity;
+import com.bewithme.data.entity.MateWishEntity;
 import com.bewithme.data.repository.GameInfoRepository;
+import com.bewithme.data.repository.MateWishRepository;
 import org.springframework.stereotype.Service;
 
 import com.bewithme.app.user.model.UserDetailDto;
@@ -25,6 +27,7 @@ public class UserService {
 	private final MemberBasicRepository memberBasicRepo;
 	private final MatchingInfoRepository matchingInfoRepo;
 	private final GameInfoRepository gameInfoRepository;
+	private final MateWishRepository mateWishRepository;
 
 	public List<UserDto> findUsers(Long id, UserSearchCondition condition) {
 		// 1. 사용중인 user 조회 stat = 사용중, order by lastLogin
@@ -33,11 +36,8 @@ public class UserService {
 		var mates = matchingInfoRepo.findMyMateMemberId(id);
 		mates.add(id); // 자신 제외
 
-		if(!mates.isEmpty()) {
-			users = new ArrayList<>(users);
-			users.removeIf(user -> mates.contains(user.getId()));
-		}
 		return users.stream()
+				.filter(e -> !mates.contains(e.getId()))
 				.map(UserDto::new)
 				.collect(Collectors.toList());
 	}
@@ -49,7 +49,10 @@ public class UserService {
 		// 2. game info
 		var gameInfo = gameInfoRepository.findByMemberBasic(userInfo).orElse(new GameInfoEntity());
 		userDetail.setGameInfo(gameInfo);
-		
+		// 3. wish info
+		var wishInfo = mateWishRepository.findByMemberBasic(userInfo).orElse(new MateWishEntity());
+		userDetail.setWishInfo(wishInfo);
+
 		return userDetail;
 	}
 }
