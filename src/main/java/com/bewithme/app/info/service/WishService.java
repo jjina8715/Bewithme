@@ -23,7 +23,7 @@ public class WishService {
 
 	@Transactional(readOnly = true)
 	public MemberWishDto getByMember(MemberBasicEntity member) {
-		MateWishEntity mateWish = mateWishRepo.findByMemberBasic(member);
+		MateWishEntity mateWish = mateWishRepo.findByMemberBasic(member).orElse(new MateWishEntity());
 		return new MemberWishDto(mateWish);
 	}
 
