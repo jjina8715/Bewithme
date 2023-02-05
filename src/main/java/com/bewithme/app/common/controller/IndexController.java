@@ -20,4 +20,9 @@ public class IndexController {
 	public String indexMates() {
 		return "";
 	}
+
+	@GetMapping("/info/wish")
+	public String wish() {
+		return "tab2.html";
+	}
 }

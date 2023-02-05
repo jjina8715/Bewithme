@@ -17,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 
 @Entity
 @Getter
-@Builder
 @RequiredArgsConstructor
 @EqualsAndHashCode(of = { "id" })
 @Table(name = "mate_wish")

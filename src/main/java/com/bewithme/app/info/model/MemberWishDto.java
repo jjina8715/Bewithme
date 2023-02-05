@@ -8,8 +8,10 @@ import com.bewithme.data.type.StatCode;
 import javassist.NotFoundException;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class MemberWishDto {
 	private Long id;
 	private String gender;
