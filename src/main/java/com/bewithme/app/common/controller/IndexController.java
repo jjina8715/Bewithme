@@ -10,4 +10,14 @@ public class IndexController {
 	public String index() {
 		return "index.html";
 	}
+
+	@GetMapping("/user-list")
+	public String indexUsers() {
+		return "list.html";
+	}
+
+	@GetMapping("/mate-list")
+	public String indexMates() {
+		return "";
+	}
 }

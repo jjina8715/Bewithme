@@ -6,7 +6,6 @@ import com.bewithme.data.entity.MatchingInfoEntity;
 import java.util.List;
 
 public interface MatchingInfoRepositoryCustom {
-	List<MatchingInfoEntity> findMyMates(Long id);
 	List<Long> findMyMateMemberId(Long id);
 	List<MateDto> findMyMateInfo(Long id);
 }

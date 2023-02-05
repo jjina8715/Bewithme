@@ -10,6 +10,7 @@ import com.bewithme.data.repository.MemberBasicRepository;
 import com.bewithme.data.type.StatCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 import static com.bewithme.data.type.StatCode.C01;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class MateService {
 
@@ -29,16 +31,17 @@ public class MateService {
         return matchingInfoRepo.findMyMateInfo(member.getId());
     }
 
-    public void cancelMate(MemberBasicEntity memberBasic, Long mateId) {
+    public void cancelMate(MemberBasicEntity member, Long mateId) {
         var mate = matchingInfoRepo.findById(mateId).orElseThrow();
-        if(!mate.isMyMate(memberBasic.getId())) return;
+        if(!mate.isMyMate(member.getId())) return;
         mate.cancelMate();
     }
 
-    public UserDetailDto findMateInfo(MemberBasicEntity memberBasic, Long mateId) throws Exception {
-        var myId = memberBasic.getId();
+    public UserDetailDto findMateInfo(MemberBasicEntity member, Long mateId) throws Exception {
+        var myId = member.getId();
+        System.out.println(myId);
         var mate = matchingInfoRepo.findById(mateId).orElseThrow();
-        if(!mate.isApproved() && !mate.isMyMate(myId)) throw new RuntimeException("");
+        if(!mate.isApproved() && !mate.isMyMate(myId)) throw new RuntimeException("mate 정보를 찾을 수 없습니다");
         
         var mateInfo = StringUtils.equals(mate.getRequestee(), myId)
                 ? mate.getRequester() : mate.getRequestee();
