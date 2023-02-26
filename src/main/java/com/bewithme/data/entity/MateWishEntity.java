@@ -13,11 +13,15 @@ import javax.persistence.Table;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
+@ToString
 @Entity
 @Getter
-@RequiredArgsConstructor
+@Builder
+@NoArgsConstructor
 @EqualsAndHashCode(of = { "id" })
 @Table(name = "mate_wish")
 public class MateWishEntity {
@@ -41,5 +45,15 @@ public class MateWishEntity {
 
 	@Column(name = "game_type", length = 255)
 	private String gameType;
+	
+	@Builder
+	public MateWishEntity(Long id, MemberBasicEntity memberBasic, String gender, String ageGroup, String accessTime, String gameType) {
+		this.id = id;
+		this.memberBasic = memberBasic;
+		this.gender = gender;
+		this.ageGroup = ageGroup;
+		this.accessTime = accessTime;
+		this.gameType = gameType;
+	}
 
 }

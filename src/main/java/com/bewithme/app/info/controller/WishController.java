@@ -23,38 +23,39 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/info/wish")
 @RestController
 public class WishController {
-
+	
 	private final WishService wishService;
-
+	
 	@GetMapping("/{id}")
 	public MemberWishDto getWish(@AuthenticationPrincipal UserDetails member) {
 		var memberBasic = member.getUser().getMemberBasic();
 		return wishService.getByMember(memberBasic);
 	}
-
+	
 	@PostMapping
 	public String postWish(@AuthenticationPrincipal UserDetails member, MemberWishDto memberWishDto) {
-
+		
 		var memberBasic = member.getUser().getMemberBasic();
 		try {
-			wishService.createMemberwish(memberBasic, memberWishDto);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			;
+		//wishService.createMemberwish(memberBasic, memberWishDto);
+		}
+		catch(Exception e) {
+			log.error(e.getMessage());;
 			return "";
 		}
-		return "";
+		return "" ;
 	}
-
+	
 	@PutMapping
 	public String putWish(@AuthenticationPrincipal UserDetails member, MemberWishDto memberWishDto) {
 		var memberBasic = member.getUser().getMemberBasic();
 		try {
-			wishService.updateMemberwish(memberBasic, memberWishDto);
-		} catch (Exception e) {
+		wishService.updateMemberwish(memberBasic, memberWishDto);
+		}
+		catch(Exception e) {
 			return "";
 		}
-		return "";
+		return "" ;
 	}
-
+	
 }

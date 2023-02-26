@@ -86,7 +86,7 @@ public class UserDto {
 	public MateWishEntity toWishEntity(MemberBasicEntity userBasic) throws Exception {
 		return MateWishEntity.builder()
 				.memberBasic(userBasic)
-				.gender(Gender.ofName(gender).getCode())				
+				.gender(Gender.ofName(wishGender).getCode())				
 				.ageGroup(wishAgeGroup)
 				.accessTime(wishAccessTime)
 				.gameType(wishGameType)

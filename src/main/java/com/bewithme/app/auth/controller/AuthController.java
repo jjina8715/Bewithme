@@ -51,6 +51,6 @@ public class AuthController {
 			return "signup";
 		}
 		memberService.login(userDto);
-		return "redirect:/info/wish";
+		return "redirect:/";
 	}
 }
