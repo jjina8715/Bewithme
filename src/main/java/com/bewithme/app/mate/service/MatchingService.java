@@ -36,7 +36,7 @@ public class MatchingService {
 	@Transactional
 	public void approveRequest(MemberBasicEntity memberBasic, Long mateId) {
 		var request = matchingInfoRepo.findById(mateId).orElseThrow();
-		if(!request.isWaited() && !request.isMyMate(memberBasic.getId())) return;
+		if(!request.isWaited() || request.getRequestee().getId() != memberBasic.getId()) return;
 		request.approveRequest();
 	}
 

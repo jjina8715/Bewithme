@@ -16,9 +16,9 @@ public class IndexController {
 		return "list.html";
 	}
 
-	@GetMapping("/mate-list")
+	@GetMapping("/my-info")
 	public String indexMates() {
-		return "";
+		return "mypage.html";
 	}
 
 	@GetMapping("/info/wish")
